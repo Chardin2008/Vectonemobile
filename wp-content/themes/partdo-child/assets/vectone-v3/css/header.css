@@ -1,0 +1,183 @@
+/* Vectone V3 — header compact, mêmes formulaires/menus WordPress. */
+body.vectone-v3 .site-header {
+  position: relative;
+  z-index: 60;
+  border: 0 !important;
+  background: var(--vm-white);
+  box-shadow: 0 1px 0 var(--vm-line) !important;
+}
+
+body.vectone-v3 .site-header .header-topbar {
+  min-height: 30px !important;
+  height: 30px;
+  border: 0 !important;
+  background: var(--vm-forest) !important;
+  color: rgba(255,255,255,.9) !important;
+  font-size: 12px;
+}
+body.vectone-v3 .site-header .header-topbar .header-inner,
+body.vectone-v3 .site-header .header-main .header-inner,
+body.vectone-v3 .site-header .header-nav .header-inner {
+  width: min(var(--vm-container), calc(100% - 48px));
+  max-width: var(--vm-container) !important;
+  margin-inline: auto;
+}
+body.vectone-v3 .site-header .header-topbar a,
+body.vectone-v3 .site-header .header-topbar * { color: inherit; }
+
+body.vectone-v3 .site-header .header-row.header-main,
+body.vectone-v3 .site-header .header-row.header-main .header-inner {
+  min-height: 76px !important;
+  height: auto !important;
+  border: 0 !important;
+  background: var(--vm-white) !important;
+}
+body.vectone-v3 .site-header .header-main .header-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+body.vectone-v3 .site-header .header-main .column { min-width: 0; }
+body.vectone-v3 .site-header .header-main .column.center {
+  flex: 1 1 620px;
+  min-width: 0 !important;
+  padding-inline: 8px !important;
+}
+body.vectone-v3 .site-header .site-brand img {
+  display: block;
+  width: auto !important;
+  max-width: 190px !important;
+  max-height: 52px !important;
+}
+
+/* Partdo + FiboSearch : un seul dessin, aucun positionnement absolu cassant. */
+body.vectone-v3 .site-header .search-form-wrapper,
+body.vectone-v3 .site-header .search-holder,
+body.vectone-v3 .site-header form.search-form,
+body.vectone-v3 .site-header .dgwt-wcas-search-wrapp,
+body.vectone-v3 .site-header .dgwt-wcas-sf-wrapp {
+  width: 100% !important;
+  max-width: 620px !important;
+  min-width: 0 !important;
+  margin: 0 auto !important;
+}
+body.vectone-v3 .site-header form.search-form,
+body.vectone-v3 .site-header .search-form-wrapper form,
+body.vectone-v3 .site-header .search-holder form,
+body.vectone-v3 .site-header .dgwt-wcas-sf-wrapp {
+  display: flex !important;
+  align-items: stretch !important;
+  min-height: 48px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--vm-line-strong) !important;
+  border-radius: 12px !important;
+  background: #fbfcfb !important;
+  box-shadow: none !important;
+}
+body.vectone-v3 .site-header input[type="search"],
+body.vectone-v3 .site-header input.search-input,
+body.vectone-v3 .site-header .dgwt-wcas-search-input {
+  position: static !important;
+  min-width: 0 !important;
+  width: auto !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  flex: 1 1 auto !important;
+  padding: 0 18px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: 0 !important;
+  background: transparent !important;
+  color: var(--vm-text) !important;
+  box-shadow: none !important;
+  font-size: 14px !important;
+}
+body.vectone-v3 .site-header input::placeholder { color: #8a9692 !important; opacity: 1; }
+body.vectone-v3 .site-header form.search-form button,
+body.vectone-v3 .site-header .search-form-wrapper button,
+body.vectone-v3 .site-header .search-holder button,
+body.vectone-v3 .site-header .dgwt-wcas-search-submit {
+  position: static !important;
+  inset: auto !important;
+  width: auto !important;
+  min-width: 116px !important;
+  height: 48px !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 0 20px !important;
+  border: 0 !important;
+  border-left: 1px solid rgba(255,255,255,.22) !important;
+  border-radius: 0 !important;
+  background: var(--vm-coral) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 48px !important;
+  text-indent: 0 !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+body.vectone-v3 .site-header .dgwt-wcas-search-submit::before,
+body.vectone-v3 .site-header .dgwt-wcas-search-submit::after { display: none !important; }
+body.vectone-v3 .site-header form.search-form:focus-within,
+body.vectone-v3 .site-header .dgwt-wcas-sf-wrapp:focus-within {
+  border-color: rgba(240,68,88,.55) !important;
+  box-shadow: 0 0 0 3px rgba(240,68,88,.09) !important;
+}
+
+body.vectone-v3 .site-header .header-nav {
+  min-height: 52px !important;
+  border-top: 1px solid var(--vm-line) !important;
+  border-bottom: 0 !important;
+  background: var(--vm-white) !important;
+}
+body.vectone-v3 .site-header .header-nav .header-inner {
+  min-height: 52px !important;
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+body.vectone-v3 .site-header .header-nav .column:first-child { flex: 0 0 min(280px, 24vw); }
+body.vectone-v3 .site-header .header-nav .column:first-child > a,
+body.vectone-v3 .site-header .header-nav .column:first-child > button,
+body.vectone-v3 .site-header .header-nav .column:first-child .button {
+  min-height: 44px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: var(--vm-coral) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font-weight: 800 !important;
+}
+body.vectone-v3 .site-header .klbth-menu-wrapper.primary .klbth-menu > .menu-item > a {
+  color: var(--vm-text) !important;
+  font-size: 14px !important;
+  font-weight: 750 !important;
+}
+body.vectone-v3 .site-header .klbth-menu-wrapper.primary .klbth-menu > .menu-item > a:hover { color: var(--vm-coral) !important; }
+body.vectone-v3 .site-header .header-inner::after { display: none !important; }
+
+@media (max-width: 1199px) {
+  body.vectone-v3 .site-header .header-main .header-inner { gap: 14px; }
+  body.vectone-v3 .site-header .site-brand img { max-width: 160px !important; max-height: 46px !important; }
+  body.vectone-v3 .site-header .header-main .column.center { padding-inline: 0 !important; }
+  body.vectone-v3 .site-header .header-nav .column:first-child { flex-basis: 230px; }
+}
+@media (max-width: 991px) {
+  body.vectone-v3 .site-header .header-topbar { display: none !important; }
+  body.vectone-v3 .site-header .header-main .header-inner,
+  body.vectone-v3 .site-header .header-row.header-mobile .header-inner {
+    width: min(100% - 28px, var(--vm-container));
+    min-height: 68px !important;
+  }
+  body.vectone-v3 .site-header .header-nav { display: none !important; }
+  body.vectone-v3 .site-header form.search-form button,
+  body.vectone-v3 .site-header .dgwt-wcas-search-submit { min-width: 54px !important; font-size: 0 !important; }
+}
+@media (max-width: 767px) {
+  body.vectone-v3 .site-header .header-main .header-inner { width: calc(100% - 20px); }
+  body.vectone-v3 .site-header .site-brand img { max-width: 138px !important; }
+  body.vectone-v3 .site-header .header-main .column.center { padding-inline: 0 !important; }
+}

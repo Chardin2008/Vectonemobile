@@ -1,0 +1,70 @@
+services:
+  db:
+    image: mysql:8.0.46
+    restart: unless-stopped
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_520_ci --max_allowed_packet=512M
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+    mem_limit: 2g
+    networks: [vectone]
+
+  wordpress:
+    image: wordpress:7.1.2-php8.4-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${WP_PORT}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_TABLE_PREFIX: wor6835_
+      WORDPRESS_DEBUG: "0"
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./backups:/var/www/html/wp-content/updraft:ro
+      - ./wp-content/themes/partdo-child:/var/www/html/wp-content/themes/partdo-child
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    mem_limit: 2g
+    networks: [vectone]
+
+  wpcli:
+    image: wordpress:cli-php8.4
+    profiles: [tools]
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    user: "33:33"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - wordpress_data:/var/www/html
+      - ./backups:/backups:ro
+    networks: [vectone]
+
+volumes:
+  wordpress_data:
+  mysql_data:
+
+networks:
+  vectone:
+    driver: bridge

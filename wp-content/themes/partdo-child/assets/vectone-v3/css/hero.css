@@ -1,0 +1,206 @@
+/* Vectone V3 — le vrai .klbth-banner reste piloté par Elementor/Partdo. */
+body.home.vectone-v3 .elementor-element-7e305b1 {
+  position: relative !important;
+  left: 50% !important;
+  width: min(var(--vm-container), calc(100vw - 48px)) !important;
+  max-width: var(--vm-container) !important;
+  margin: 20px 0 0 !important;
+  padding: 0 !important;
+  transform: translateX(-50%) !important;
+  overflow: visible !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1::before {
+  display: block;
+  margin: 0 0 10px 10px;
+  color: var(--vm-forest-soft);
+  content: "COMPAREZ. CHOISISSEZ. CONNECTEZ.";
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .18em;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner {
+  position: relative !important;
+  min-height: 500px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--vm-line) !important;
+  border-radius: 22px !important;
+  background: var(--vm-surface) !important;
+  box-shadow: var(--vm-shadow) !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-wrapper {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 44%) minmax(0, 56%) !important;
+  align-items: stretch !important;
+  min-height: 500px !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--vm-surface) !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-inner {
+  position: relative !important;
+  z-index: 3 !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  display: flex !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  padding: 54px 38px 54px 44px !important;
+  color: var(--vm-text) !important;
+  text-align: left !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-heading {
+  margin: 0 0 14px !important;
+  color: var(--vm-coral) !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-title,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner h1,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner h2 {
+  max-width: 560px !important;
+  margin: 0 0 18px !important;
+  color: var(--vm-forest) !important;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: clamp(48px, 5vw, 68px) !important;
+  font-weight: 850 !important;
+  letter-spacing: -.055em !important;
+  line-height: .98 !important;
+  text-shadow: none !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-excerpt,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-excerpt p {
+  max-width: 500px !important;
+  margin: 0 0 20px !important;
+  color: var(--vm-muted) !important;
+  font-size: 17px !important;
+  line-height: 1.5 !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .price,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-price {
+  margin: 0 0 18px !important;
+  color: var(--vm-forest) !important;
+  font-size: clamp(30px,3.1vw,46px) !important;
+  font-weight: 850 !important;
+  letter-spacing: -.045em !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-footer {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 2px !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .banner-button,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .button,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner a.button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 48px !important;
+  padding: 0 22px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  background: var(--vm-coral) !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 850 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  transition: transform .18s var(--vm-ease), background-color .18s var(--vm-ease) !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .banner-button:hover,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .button:hover {
+  background: var(--vm-coral-deep) !important;
+  transform: translateY(-2px) !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-media,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .vm-v3-fallback-media {
+  position: relative !important;
+  z-index: 1 !important;
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  display: block !important;
+  min-width: 0 !important;
+  min-height: 500px !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  background: var(--vm-cloud) !important;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-media::before,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .vm-v3-fallback-media::before {
+  position: absolute;
+  z-index: 2;
+  inset: 0 auto 0 0;
+  width: 16%;
+  background: rgba(248,250,249,.22);
+  content: "";
+  pointer-events: none;
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-media img,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .vm-v3-fallback-media img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 500px !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1.01);
+}
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .slick-dots,
+body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .swiper-pagination {
+  right: 22px !important;
+  bottom: 18px !important;
+  left: auto !important;
+  width: auto !important;
+  z-index: 6 !important;
+}
+
+@media (max-width: 991px) {
+  body.home.vectone-v3 .elementor-element-7e305b1 { width: min(100vw - 28px, var(--vm-container)) !important; }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner,
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-wrapper { min-height: 460px !important; }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-inner { padding: 42px 26px 42px 32px !important; }
+}
+@media (max-width: 767px) {
+  body.home.vectone-v3 .elementor-element-7e305b1 { width: calc(100vw - 20px) !important; margin-top: 12px !important; }
+  body.home.vectone-v3 .elementor-element-7e305b1::before { margin-left: 4px; }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner { border-radius: 16px !important; }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-wrapper {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto 280px !important;
+    min-height: 0 !important;
+  }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-inner {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    padding: 34px 24px 28px !important;
+  }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-media,
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .vm-v3-fallback-media {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    min-height: 280px !important;
+  }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-media img,
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .vm-v3-fallback-media img { min-height: 280px !important; }
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner .entry-title,
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner h1,
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner h2 { font-size: clamp(38px, 11vw, 52px) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.home.vectone-v3 .elementor-element-7e305b1 .klbth-banner * { transition: none !important; transform: none !important; }
+}

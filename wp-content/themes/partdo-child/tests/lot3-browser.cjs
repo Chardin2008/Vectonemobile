@@ -1,0 +1,73 @@
+// Read-only browser checks. Artifacts live outside the theme in the OS temp folder.
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const { spawn } = require('node:child_process');
+const out = path.join(os.tmpdir(), 'vectone-lot3');
+fs.mkdirSync(out, { recursive: true });
+const mode = process.argv[2] || 'before';
+const delay = ms => new Promise(r => setTimeout(r, ms));
+(async () => {
+  const proc = spawn('C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', ['--headless=new', '--disable-gpu', '--remote-debugging-port=9337', '--no-first-run', '--user-data-dir=' + path.join(out, 'profile'), 'about:blank'], { windowsHide: true, stdio: 'ignore' });
+  let ws;
+  try {
+    let tabs;
+    for (let i = 0; i < 40; i++) { try { tabs = await (await fetch('http://127.0.0.1:9337/json')).json(); break; } catch { await delay(250); } }
+    ws = new WebSocket(tabs.find(t => t.type === 'page').webSocketDebuggerUrl);
+    await new Promise(r => ws.addEventListener('open', r, { once: true }));
+    let id = 0; const pending = new Map(); const errors = [];
+    ws.addEventListener('message', e => { const m = JSON.parse(e.data); if (m.id) { const p = pending.get(m.id); pending.delete(m.id); m.error ? p.reject(m.error) : p.resolve(m.result); } else if (m.method === 'Runtime.exceptionThrown') errors.push(m.params.exceptionDetails); });
+    const send = (method, params = {}) => new Promise((resolve, reject) => { const n = ++id; pending.set(n, { resolve, reject }); ws.send(JSON.stringify({ id: n, method, params })); });
+    const evaluate = async expression => { const r = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true }); if (r.exceptionDetails) throw r.exceptionDetails; return r.result.value; };
+    await send('Page.enable'); await send('Runtime.enable');
+    const report = { errors, widths: [] };
+    for (const width of [1440, 1024, 768, 390]) {
+      await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: false });
+      await Promise.race([send('Page.navigate', { url: 'http://127.0.0.1:8085/' }), delay(30000)]);
+      for (let i = 0; i < 60; i++) { if (await evaluate("document.readyState === 'complete' && !!document.querySelector('.vm-v3-featured')")) break; await delay(500); }
+      await delay(800);
+      const state = await evaluate(`(() => {
+        const q = s => [...document.querySelectorAll(s)];
+        const cards = q('.products .product-wrapper');
+        const attrs = el => Object.fromEntries([...el.attributes].map(a => [a.name,a.value]));
+        const sections = ['.vm-v3-needs','.vm-v3-featured','.vm-v3-comparator-intro'];
+        return {width:innerWidth,scrollWidth:document.documentElement.scrollWidth,products:cards.length,
+          links:cards.map(c=>[...c.querySelectorAll('a[href]')].map(attrs)),
+          featuredLinks:q('.vm-v3-offer__cta').map(a=>({href:a.getAttribute('href'),target:a.getAttribute('target'),rel:a.getAttribute('rel')})),
+          awin:q('a[href*="awin1.com"]').filter(a=>!a.closest('.vm-v3-featured,.vectone-compare-modal')).map(a=>a.getAttribute('href')),
+          forms:q('form').map(f=>({action:f.getAttribute('action'),method:f.getAttribute('method'),fields:[...f.querySelectorAll('[name]')].map(attrs)})),
+          featured:cards.filter(c=>c.closest('.featured')).map(c=>c.textContent.trim().slice(0,150)),
+          sections:sections.map(s=>{const e=document.querySelector(s);const b=e?.getBoundingClientRect();return {selector:s,x:b?.x,width:b?.width,height:b?.height,overflow:e?e.scrollWidth>e.clientWidth:false};}),
+          controls:q('.filtered-sidebar input,.filtered-sidebar select,.filtered-sidebar button').map(attrs),
+          compareButtons:q('.vectone-compare-button').length};
+      })()`);
+      report.widths.push(state);
+      await evaluate("document.querySelector('.cmplz-close')?.click(); window.scrollTo({top:document.querySelector('.vm-v3-needs').getBoundingClientRect().top+window.scrollY-16,behavior:'instant'})");
+      await delay(500);
+      const shot = await send('Page.captureScreenshot', { format: 'png' });
+      fs.writeFileSync(path.join(out, mode + '-' + width + '.png'), Buffer.from(shot.data, 'base64'));
+      await evaluate("window.scrollTo({top:document.querySelector('.vm-v3-featured').getBoundingClientRect().top+window.scrollY-16,behavior:'instant'})");
+      await delay(300);
+      const offersShot = await send('Page.captureScreenshot', { format: 'png' });
+      fs.writeFileSync(path.join(out, mode + '-offers-' + width + '.png'), Buffer.from(offersShot.data, 'base64'));
+      if (mode === 'after') {
+        state.comparison = await evaluate(`(() => {
+          const buttons=[...document.querySelectorAll('.vectone-compare-button')];
+          const count=()=>document.querySelector('[data-compare-count]').textContent;
+          const counts=[]; buttons.slice(0,4).forEach(b=>{b.click();counts.push(count());});
+          document.querySelector('[data-compare-open]').click();
+          const modal=document.querySelector('.vectone-compare-modal');
+          const open=!modal.hidden, items=modal.querySelectorAll('.vectone-compare-modal__item').length;
+          const links=[...modal.querySelectorAll('a')].map(a=>a.getAttribute('href'));
+          document.querySelector('.vectone-compare-modal__close').click();const close=modal.hidden;
+          document.querySelector('[data-compare-open]').click();document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'}));const escape=modal.hidden;
+          document.querySelector('[data-compare-open]').click();document.querySelector('.vectone-compare-modal__backdrop').click();const overlay=modal.hidden;
+          return {counts,open,items,links,close,escape,overlay};
+        })()`);
+      }
+    }
+    fs.writeFileSync(path.join(out, mode + '.json'), JSON.stringify(report, null, 2));
+    console.log(JSON.stringify({ artifacts: out, errors: report.errors, widths: report.widths.map(({width,scrollWidth,products,featured,sections,compareButtons,comparison})=>({width,scrollWidth,products,featured,sections,compareButtons,comparison})) }, null, 2));
+    await send('Browser.close');
+  } finally { if (ws) ws.close(); proc.kill(); }
+})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,0 +1,15 @@
+.env
+backups/
+wordpress_data/
+mysql_data/
+*.sql
+*.sql.gz
+
+# Local test exports and checkpoints
+*.html
+headers.txt
+partdo-child-checkpoint-*/
+*.zip
+.pages.json
+wp-content/themes/partdo-child-STABLE-SAVE/
+wp-content/themes/partdo-child-broken/

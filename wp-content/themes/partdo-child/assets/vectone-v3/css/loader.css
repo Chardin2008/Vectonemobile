@@ -1,0 +1,24 @@
+body.home.vectone-v3 .site-loading { display: none !important; }
+.vm-v3-loader { position: fixed; z-index: 999999; inset: 0; display: grid; place-items: center; overflow: hidden; background: #183d35; color: #fff; opacity: 1; pointer-events: auto; animation: vmLoaderFailsafe 3.2s linear forwards; }
+.vm-v3-loader[hidden] { display: none !important; }
+.vm-v3-loader.is-leaving { animation: none; opacity: 0; pointer-events: none; transition: opacity .22s ease; }
+.vm-v3-loader__inner { position: relative; width: min(420px, calc(100% - 48px)); height: min(420px, calc(100% - 48px)); }
+.vm-v3-loader__track, .vm-v3-loader__count, .vm-v3-loader__word { display: none !important; }
+.vm-v3-loader__brand { position: absolute; z-index: 5; top: 50%; left: 50%; display: grid; width: 92px; height: 92px; place-items: center; margin: 0; border-radius: 50%; color: #fff; font-size: 0; transform: translate(-50%, -50%) scale(.32); opacity: 0; animation: vmBrandMark 2.6s cubic-bezier(.22,.8,.24,1) forwards; }
+.vm-v3-loader__brand::before { width: 76px; height: 76px; background: #fff; content: "V"; color: #f04458; font-family: Arial, sans-serif; font-size: 54px; font-weight: 900; line-height: 76px; text-align: center; clip-path: polygon(8% 12%,31% 12%,50% 62%,69% 12%,92% 12%,62% 88%,38% 88%); animation: vmCorePulse 2.6s cubic-bezier(.22,.8,.24,1) forwards; }
+.vm-v3-loader__brand.has-real-logo::before { display: none; }
+.vm-v3-loader__brand img { display: block; width: 92px; max-height: 74px; object-fit: contain; filter: brightness(0) invert(1); }
+.vm-v3-loader__signal { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.vm-v3-loader__signal line, .vm-v3-loader__signal path { fill: none; stroke: rgba(255,255,255,.55); stroke-width: 1; stroke-dasharray: 1 160; stroke-dashoffset: 160; animation: vmSignalLine 2.6s cubic-bezier(.22,.8,.24,1) forwards; }
+.vm-v3-loader__signal circle { fill: #fff; r: 4; transform-box: fill-box; transform-origin: center; animation: vmSignalNode 2.6s cubic-bezier(.22,.8,.24,1) forwards; }
+.vm-v3-loader__signal circle:nth-of-type(2n) { fill: #f04458; }
+.vm-v3-loader__signal circle:nth-of-type(3) { fill: #bfe5d7; }
+.vm-v3-loader__signal circle:nth-of-type(5) { fill: #d8ff62; }
+.vm-v3-loader__portal { position: absolute; z-index: 4; top: 50%; left: 50%; width: 90px; height: 90px; border: 1px solid rgba(216,255,98,.85); clip-path: polygon(8% 12%,31% 12%,50% 62%,69% 12%,92% 12%,62% 88%,38% 88%); opacity: 0; transform: translate(-50%, -50%) scale(.3); animation: vmPortalReveal 2.6s cubic-bezier(.22,.8,.24,1) forwards; pointer-events: none; }
+@keyframes vmSignalLine { 0%,6% { stroke-dashoffset: 160; opacity: 0; } 14% { stroke-dashoffset: 0; opacity: .45; } 36% { stroke-dashoffset: -20; opacity: .7; } 55%,61% { stroke-dashoffset: -55; opacity: .8; } 70% { stroke-dashoffset: -90; opacity: .4; } 84%,100% { stroke-dashoffset: -150; opacity: 0; } }
+@keyframes vmSignalNode { 0%,6% { opacity: 0; transform: translate(var(--x),var(--y)) scale(0); } 15% { opacity: 1; transform: translate(var(--x),var(--y)) scale(1); } 42% { opacity: 1; transform: translate(0,0) scale(1); } 55%,61% { opacity: 1; transform: translate(0,0) scale(1); } 74%,100% { opacity: 0; transform: translate(0,0) scale(.2); } }
+@keyframes vmBrandMark { 0%,55% { opacity: 0; transform: translate(-50%,-50%) scale(.32); } 62%,73% { opacity: 1; transform: translate(-50%,-50%) scale(.72); } 84% { opacity: 1; transform: translate(-50%,-50%) scale(1); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(16); } }
+@keyframes vmCorePulse { 0%,55% { transform: scale(.3); opacity: 0; } 62% { transform: scale(1); opacity: 1; } 70% { transform: scale(1.08); opacity: 1; } 84% { transform: scale(1); opacity: 1; } 100% { transform: scale(1); opacity: 0; } }
+@keyframes vmPortalReveal { 0%,82% { opacity: 0; transform: translate(-50%,-50%) scale(.3); } 88% { opacity: .7; transform: translate(-50%,-50%) scale(1.1); } 100% { opacity: 0; transform: translate(-50%,-50%) scale(16); } }
+@keyframes vmLoaderFailsafe { 0%,99% { opacity: 1; } 100% { opacity: 0; pointer-events: none; } }
+@media (prefers-reduced-motion: reduce) { .vm-v3-loader { animation: none; opacity: 1; } .vm-v3-loader__signal { display: none; } .vm-v3-loader__brand { animation: vmReducedBrand .28s ease forwards; } .vm-v3-loader__portal { animation: none; opacity: 0; } @keyframes vmReducedBrand { from { opacity: 0; transform: translate(-50%,-50%) scale(.8); } to { opacity: 1; transform: translate(-50%,-50%) scale(1); } } }

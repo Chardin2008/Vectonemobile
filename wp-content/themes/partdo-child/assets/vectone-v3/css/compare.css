@@ -1,0 +1,174 @@
+.vectone-compare-button {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
+    border: 1px solid #d8d3cb;
+    border-radius: 9px;
+    background: transparent;
+    color: #161616;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.vectone-compare-button:hover,
+.vectone-compare-button:focus-visible {
+    border-color: #161616;
+    background: #f5f3ee;
+}
+
+.vectone-compare-button.is-added {
+    border-color: #183d35;
+    color: #183d35;
+}
+
+.vectone-compare-bar {
+    position: fixed;
+    z-index: 10000;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    max-width: 760px;
+    min-height: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    border: 1px solid rgba(24, 61, 53, .14);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .14);
+    color: #161616;
+}
+
+.vectone-compare-bar strong { white-space: nowrap; }
+
+.vectone-compare-bar [data-compare-open] {
+    min-height: 44px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 9px;
+    background: #f04458;
+    color: #fff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.vectone-compare-bar [data-compare-open]:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+.vectone-compare-modal[hidden],
+.vectone-compare-bar[hidden] { display: none; }
+
+.vectone-compare-modal {
+    position: fixed;
+    z-index: 10001;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.vectone-compare-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+}
+
+.vectone-compare-modal__panel {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 1180px);
+    max-height: min(90vh, 820px);
+    overflow: auto;
+    padding: clamp(24px, 4vw, 52px);
+    border-radius: 18px;
+    background: #f8faf9;
+    color: #161616;
+}
+
+.vectone-compare-modal__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d8d3cb;
+    border-radius: 50%;
+    background: transparent;
+    color: #161616;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+}
+
+.vectone-compare-modal__eyebrow {
+    margin: 0 0 8px;
+    color: #f04458;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.vectone-compare-modal__panel h2 { margin: 0; }
+.vectone-compare-modal__subtitle { margin: 8px 0 28px; color: #66736e; }
+
+.vectone-compare-modal__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.vectone-compare-modal__item {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid rgba(24, 61, 53, .14);
+    border-radius: 14px;
+    background: #fff;
+}
+
+.vectone-compare-modal__logo { width: 88px; height: 64px; object-fit: contain; object-position: left center; }
+.vectone-compare-modal__title { margin: 0; font-size: 18px; line-height: 1.2; }
+.vectone-compare-modal__data { color: #183d35; font-size: 24px; }
+.vectone-compare-modal__price { margin: 0; font-size: 20px; font-weight: 700; }
+.vectone-compare-modal__attribute { margin: 0; color: #66736e; font-size: 14px; }
+
+.vectone-compare-modal__cta {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding: 0 16px;
+    border-radius: 9px;
+    background: #f04458;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .vectone-compare-bar { right: 12px; bottom: 12px; left: 12px; gap: 10px; font-size: 13px; }
+    .vectone-compare-bar [data-compare-open] { padding: 0 12px; }
+    .vectone-compare-modal { padding: 12px; }
+    .vectone-compare-modal__grid { display: flex; overflow-x: auto; }
+    .vectone-compare-modal__item { flex: 0 0 min(82vw, 300px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vectone-compare-button { transition: none; }
+}

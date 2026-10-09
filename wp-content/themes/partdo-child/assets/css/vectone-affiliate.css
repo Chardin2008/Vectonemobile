@@ -1,0 +1,111 @@
+/* Structure inactive until real phone products and Awin tracking URLs are configured. */
+.vectone-affiliate-section {
+    width: min(100% - 40px, var(--vm-container, 1280px));
+    margin: 88px auto 72px;
+    color: var(--vm-ink, #171717);
+}
+
+.vectone-affiliate-section__intro {
+    border-top: 1px solid var(--vm-line, rgba(23, 23, 23, .12));
+    padding-top: 22px;
+    margin-bottom: 30px;
+}
+
+.vectone-affiliate-section__eyebrow,
+.vectone-affiliate-card__brand,
+.vectone-affiliate-card__badge {
+    margin: 0 0 9px;
+    color: var(--vm-red, #e30613);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.vectone-affiliate-section h2 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1;
+}
+
+.vectone-affiliate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.vectone-affiliate-card {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    padding: 24px;
+    border: 1px solid var(--vm-line, rgba(23, 23, 23, .12));
+    border-radius: var(--vm-radius-md, 14px);
+    background: var(--vm-white, #fff);
+}
+
+.vectone-affiliate-card--featured {
+    border-color: var(--vm-ink, #171717);
+}
+
+.vectone-affiliate-card__media {
+    display: grid;
+    min-height: 170px;
+    place-items: center;
+    margin: -24px -24px 22px;
+    border-bottom: 1px solid var(--vm-line, rgba(23, 23, 23, .12));
+    background: var(--vm-paper, #f5f3ee);
+}
+
+.vectone-affiliate-card__media img {
+    max-width: 72%;
+    height: 160px;
+    object-fit: contain;
+}
+
+.vectone-affiliate-card__title {
+    margin: 0;
+    font-size: 23px;
+    line-height: 1.12;
+}
+
+.vectone-affiliate-card__text {
+    color: var(--vm-muted, #717171);
+    line-height: 1.5;
+}
+
+.vectone-affiliate-card__price {
+    margin: auto 0 20px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.vectone-affiliate-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 13px 16px;
+    border-radius: 9px;
+    background: var(--vm-red, #e30613);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.vectone-affiliate-card__cta:hover,
+.vectone-affiliate-card__cta:focus-visible {
+    background: var(--vm-red-deep, #b80812);
+    color: #fff;
+}
+
+@media (max-width: 767px) {
+    .vectone-affiliate-section {
+        width: min(100% - 28px, var(--vm-container, 1280px));
+        margin-top: 56px;
+    }
+
+    .vectone-affiliate-grid {
+        grid-template-columns: 1fr;
+    }
+}

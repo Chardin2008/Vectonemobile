@@ -1,0 +1,10 @@
+body.vectone-offcanvas-open{overflow:hidden}
+body.vectone-v3 .vectone-offcanvas-backdrop{position:fixed;z-index:1000;inset:0;background:rgba(24,61,53,.18);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s ease}
+body.vectone-v3 .vectone-offcanvas-backdrop.is-visible{opacity:1;visibility:visible;pointer-events:auto}
+body.vectone-v3 .site-drawer{z-index:1001}
+body.vectone-v3 .site-drawer .site-drawer-header .site-close a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:#183d35;text-decoration:none;border-radius:8px}
+body.vectone-v3 .site-drawer .site-drawer-header .site-close a:hover,
+body.vectone-v3 .site-drawer .site-drawer-header .site-close a:focus-visible{color:#f04458;background:#eef1ef;outline:2px solid rgba(240,68,88,.35);outline-offset:2px}
+body.vectone-v3 .site-drawer .site-drawer-header .site-close a i{font-size:20px}
+body.vectone-v3 .site-drawer.vectone-offcanvas-is-open{visibility:visible;opacity:1;transform:translateX(0)!important;transition:transform .25s ease,opacity .25s ease}
+@media(prefers-reduced-motion:reduce){body.vectone-v3 .vectone-offcanvas-backdrop,body.vectone-v3 .site-drawer.vectone-offcanvas-is-open{transition:none}}

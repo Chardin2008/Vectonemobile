@@ -1,0 +1,154 @@
+:root {
+    --vm-coral: #F04458;
+    --vm-coral-deep: #D72E43;
+    --vm-forest: #183D35;
+    --vm-forest-soft: #245348;
+    --vm-mint: #BFE5D7;
+    --vm-signal: #D8FF62;
+    --vm-cloud: #EEF1EF;
+    --vm-surface: #F8FAF9;
+    --vm-white: #FFFFFF;
+    --vm-text: #24302C;
+    --vm-muted: #66736E;
+    --vm-line: rgba(24, 61, 53, .14);
+}
+
+.vectone-loader {
+    position: fixed;
+    z-index: 99999;
+    inset: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: var(--vm-forest);
+    color: var(--vm-white);
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .24s ease, transform .24s ease;
+}
+
+.vectone-loader--hidden {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-18px);
+}
+
+.vectone-loader__signal {
+    position: absolute;
+    top: 34%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--vm-coral);
+    animation: vectone-signal-line 1.55s cubic-bezier(.2, .7, .2, 1) forwards;
+}
+
+.vectone-loader__signal::after {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--vm-coral);
+    content: '';
+}
+
+.vectone-loader__counter {
+    position: absolute;
+    top: 25%;
+    left: calc(50% - min(31vw, 420px));
+    color: var(--vm-mint);
+    font-size: 11px;
+    letter-spacing: .18em;
+}
+
+.vectone-loader__words {
+    position: relative;
+    width: min(82vw, 980px);
+    height: clamp(130px, 23vw, 270px);
+}
+
+.vectone-loader__word {
+    position: absolute;
+    display: block;
+    font-size: clamp(42px, 7vw, 104px);
+    font-weight: 700;
+    letter-spacing: -.055em;
+    line-height: .9;
+    opacity: 0;
+    transform: translateY(16px);
+}
+
+.vectone-loader__word--compare { top: 0; left: 0; animation: vectone-word-compare 1.75s ease forwards; }
+.vectone-loader__word--choose { top: 31%; left: 23%; color: var(--vm-coral); animation: vectone-word-choose 1.75s ease forwards; }
+.vectone-loader__word--connect { top: 62%; left: 43%; color: var(--vm-mint); animation: vectone-word-connect 1.75s ease forwards; }
+
+.vectone-loader__brand {
+    position: absolute;
+    right: calc(50% - min(31vw, 420px));
+    bottom: 18%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: var(--vm-white);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .14em;
+    line-height: 1;
+    opacity: 0;
+    animation: vectone-brand-in 1.75s ease forwards;
+}
+
+.vectone-loader__brand small {
+    margin-top: 6px;
+    color: var(--vm-mint);
+    font-size: 9px;
+    letter-spacing: .28em;
+}
+
+.vectone-loader__line {
+    position: absolute;
+    right: calc(50% - min(31vw, 420px));
+    bottom: calc(18% - 10px);
+    width: 105px;
+    height: 2px;
+    overflow: hidden;
+    background: rgba(216, 255, 98, .18);
+}
+
+.vectone-loader__line span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--vm-signal);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: vectone-final-signal 1.55s ease forwards;
+}
+
+.vectone-loader--reduced * { animation: none !important; }
+.vectone-loader--reduced .vectone-loader__words,
+.vectone-loader--reduced .vectone-loader__counter,
+.vectone-loader--reduced .vectone-loader__signal { display: none; }
+.vectone-loader--reduced .vectone-loader__brand { opacity: 1; }
+
+@keyframes vectone-signal-line { 0% { width: 0; } 18%, 100% { width: 58vw; } }
+@keyframes vectone-word-compare { 0%, 12% { opacity: 0; transform: translateY(16px); } 22%, 82% { opacity: 1; transform: translateY(0); } 100% { opacity: .62; transform: translateY(-4px) scale(.94); } }
+@keyframes vectone-word-choose { 0%, 32% { opacity: 0; transform: translateY(16px); } 43%, 82% { opacity: 1; transform: translateY(0); } 100% { opacity: .62; transform: translateY(-4px) scale(.94); } }
+@keyframes vectone-word-connect { 0%, 50% { opacity: 0; transform: translateY(16px); } 61%, 82% { opacity: 1; transform: translateY(0); } 100% { opacity: .62; transform: translateY(-4px) scale(.94); } }
+@keyframes vectone-brand-in { 0%, 63% { opacity: 0; transform: translateY(10px); } 75%, 100% { opacity: 1; transform: translateY(0); } }
+@keyframes vectone-final-signal { 0%, 70% { transform: scaleX(0); } 88%, 100% { transform: scaleX(1); } }
+
+@media (max-width: 640px) {
+    .vectone-loader__counter { top: 19%; left: 14%; }
+    .vectone-loader__words { width: 84vw; }
+    .vectone-loader__word--choose { left: 13%; }
+    .vectone-loader__word--connect { left: 25%; }
+    .vectone-loader__brand,
+    .vectone-loader__line { right: 14%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vectone-loader { transition-duration: .08s; }
+}

@@ -1,0 +1,38 @@
+/* Signal Grid : surfaces globales uniquement, sans modifier la structure des sections. */
+body,
+body #page {
+    background-color: var(--vm-cloud, #EEF1EF);
+    color: var(--vm-text, #24302C);
+}
+
+main,
+.site-main,
+#primary {
+    background-color: var(--vm-cloud, #EEF1EF);
+}
+
+.site-footer,
+.footer-row.footer-widgets.custom-background-dark.light {
+    background-color: var(--vm-forest, #183D35) !important;
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+.button,
+.wp-element-button {
+    border-color: var(--vm-coral, #F04458);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--vm-signal, #D8FF62) !important;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
