@@ -1,0 +1,80 @@
+/* Shared V3 finishing layer for category pages. Data and markup remain native. */
+.tax-product_cat .vm-sans-loop-intro,
+.page-id-6672 .vm-sans-loop-intro,
+.page-id-6673 .vm-sans-loop-intro,
+.page-id-6674 .vm-sans-loop-intro,
+.tax-product_cat .vm-category-results {
+    margin-top: 28px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.tax-product_cat .vm-sans-loop-intro > h2,
+.page-id-6672 .vm-sans-loop-intro > h2,
+.page-id-6673 .vm-sans-loop-intro > h2,
+.page-id-6674 .vm-sans-loop-intro > h2,
+.tax-product_cat .vm-category-results > h2 {
+    color: #123d35;
+    font-size: clamp(34px,4vw,54px);
+    letter-spacing: -.045em;
+}
+.tax-product_cat .vm-category-offer,
+.page-id-6672 .vm-category-offer,
+.page-id-6673 .vm-category-offer,
+.page-id-6674 .vm-category-offer {
+    border-color: rgba(18,61,53,.12);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(18,61,53,.04);
+}
+.tax-product_cat .vm-category-offer:hover,
+.page-id-6672 .vm-category-offer:hover,
+.page-id-6673 .vm-category-offer:hover,
+.page-id-6674 .vm-category-offer:hover {
+    border-color: #f2384f;
+    box-shadow: 0 10px 26px rgba(18,61,53,.07);
+}
+.tax-product_cat .vm-sans-guide,
+.page-id-6672 .vm-sans-guide,
+.page-id-6673 .vm-sans-guide,
+.page-id-6674 .vm-sans-guide {
+    border-radius: 22px;
+    background: #f7faf8;
+}
+.tax-product_cat .vm-sans-guide__profiles article,
+.page-id-6672 .vm-sans-guide__profiles article,
+.page-id-6673 .vm-sans-guide__profiles article,
+.page-id-6674 .vm-sans-guide__profiles article {
+    border-color: rgba(18,61,53,.11);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(18,61,53,.03);
+}
+.tax-product_cat .vm-sans-faq,
+.page-id-6672 .vm-sans-faq,
+.page-id-6673 .vm-sans-faq,
+.page-id-6674 .vm-sans-faq {
+    padding-top: 58px;
+    padding-bottom: 46px;
+}
+.tax-product_cat .vm-sans-faq details,
+.page-id-6672 .vm-sans-faq details,
+.page-id-6673 .vm-sans-faq details,
+.page-id-6674 .vm-sans-faq details {
+    border-top: 1px solid rgba(18,61,53,.13);
+    border-bottom: 0;
+}
+.tax-product_cat .vm-sans-faq details:last-child,
+.page-id-6672 .vm-sans-faq details:last-child,
+.page-id-6673 .vm-sans-faq details:last-child,
+.page-id-6674 .vm-sans-faq details:last-child { border-bottom: 1px solid rgba(18,61,53,.13); }
+.tax-product_cat .vm-sans-final-cta,
+.page-id-6672 .vm-sans-final-cta,
+.page-id-6673 .vm-sans-final-cta,
+.page-id-6674 .vm-sans-final-cta {
+    border-radius: 20px;
+    background: #123d35;
+}
+@media (max-width:767px) {
+    .tax-product_cat .vm-sans-faq,
+    .page-id-6672 .vm-sans-faq,
+    .page-id-6673 .vm-sans-faq,
+    .page-id-6674 .vm-sans-faq { padding-top: 42px; padding-bottom: 32px; }
+}

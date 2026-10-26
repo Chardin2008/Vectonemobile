@@ -35,7 +35,7 @@ services:
       WORDPRESS_DEBUG: "0"
     volumes:
       - wordpress_data:/var/www/html
-      - ./backups:/var/www/html/wp-content/updraft:ro
+      - ./backups:/var/www/html/wp-content/updraft:rw
       - ./wp-content/themes/partdo-child:/var/www/html/wp-content/themes/partdo-child
     extra_hosts:
       - "host.docker.internal:host-gateway"

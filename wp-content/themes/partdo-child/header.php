@@ -58,7 +58,5 @@
 				$('.dropdown-menu.collapse.show').removeClass('show');
 			}
 
-			// Modification du lien mailto
-			$('a[href="mailto:contact@vectonemobile.fr"]').attr('href', 'https://vectonemobile.fr/contact/');
 		});
 		</script>

@@ -1,11 +1,21 @@
 /* Vectone V3 — header compact, mêmes formulaires/menus WordPress. */
 body.vectone-v3 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 60;
   border: 0 !important;
   background: var(--vm-white);
   box-shadow: 0 1px 0 var(--vm-line) !important;
 }
+body.admin-bar.vectone-v3 .site-header { top: 32px; }
+@media (max-width: 782px) {
+  body.admin-bar.vectone-v3 .site-header { top: 46px; }
+}
+/* The complete header wrapper is sticky; no spacer is needed in document flow. */
+body.vectone-v3,
+body.admin-bar.vectone-v3 { padding-top: 0; }
 
 body.vectone-v3 .site-header .header-topbar {
   min-height: 30px !important;
@@ -180,4 +190,86 @@ body.vectone-v3 .site-header .header-inner::after { display: none !important; }
   body.vectone-v3 .site-header .header-main .header-inner { width: calc(100% - 20px); }
   body.vectone-v3 .site-header .site-brand img { max-width: 138px !important; }
   body.vectone-v3 .site-header .header-main .column.center { padding-inline: 0 !important; }
+}
+
+/* Permanent global header: keep the three existing rows in one sticky wrapper. */
+body.vectone-v3 .site-header,
+body.vectone-v3 .site-header .header-row,
+body.vectone-v3 .site-header .header-inner { overflow: visible; }
+
+@media (max-width: 1199px) {
+  body.vectone-v3 .site-header .header-row.hide-below-1200 { display: block !important; }
+  body.vectone-v3 .site-header .header-row.hide-above-1200 { display: none !important; }
+  body.vectone-v3 .site-header .header-topbar { display: block !important; height: auto; min-height: 36px !important; }
+  body.vectone-v3 .site-header .header-topbar .header-inner { min-height: 36px; width: calc(100% - 32px); }
+  body.vectone-v3 .site-header .header-topbar .column.left { display: flex; }
+  body.vectone-v3 .site-header .header-topbar .column.right { display: flex; min-width: 0; }
+  body.vectone-v3 .site-header .header-main .header-inner { flex-wrap: wrap; row-gap: 8px; padding-block: 8px; }
+  body.vectone-v3 .site-header .header-main .column.center { flex: 1 1 420px; }
+  body.vectone-v3 .site-header .header-nav { display: block !important; min-height: 52px !important; }
+  body.vectone-v3 .site-header .header-nav .header-inner { flex-wrap: wrap; min-height: 52px; padding-block: 4px; row-gap: 4px; }
+  body.vectone-v3 .site-header .header-nav .column:first-child { flex: 0 1 auto; }
+  body.vectone-v3 .site-header .header-nav .klbth-menu-wrapper.primary { min-width: 0; flex: 1 1 360px; }
+  body.vectone-v3 .site-header .header-nav .klbth-menu-wrapper.primary .klbth-menu { display: flex; flex-wrap: wrap; align-items: center; gap: 0 16px; }
+}
+
+@media (max-width: 767px) {
+  body.vectone-v3 .site-header .header-topbar > .container { width: calc(100% - 20px); }
+  body.vectone-v3 .site-header .header-topbar .header-inner { width: 100%; }
+  body.vectone-v3 .site-header .header-topbar .column.left .vm-topbar-slogan { display: none; }
+  body.vectone-v3 .site-header .header-topbar .header-notice p { font-size: 10px; white-space: nowrap; }
+  body.vectone-v3 .site-header .header-topbar .header-notice a { font-size: 10px; }
+  body.vectone-v3 .site-header .header-main .header-inner { width: calc(100% - 20px); }
+  body.vectone-v3 .site-header .header-main .column.left { flex: 1 1 auto; }
+  body.vectone-v3 .site-header .header-main .column.center { display: flex; flex: 1 1 100%; align-items: center; gap: 8px; padding-inline: 0 !important; }
+  body.vectone-v3 .site-header .header-main .column.center .search-form-wrapper { flex: 1 1 auto; min-width: 0; }
+  body.vectone-v3 .site-header .header-main .column.center .custom-button { flex: 0 0 auto; }
+  body.vectone-v3 .site-header .header-nav .header-inner { width: calc(100% - 20px); gap: 4px 10px; }
+  body.vectone-v3 .site-header .header-nav .column:first-child { flex: 0 0 auto; }
+  body.vectone-v3 .site-header .header-nav .column:first-child > a,
+  body.vectone-v3 .site-header .header-nav .column:first-child > button,
+  body.vectone-v3 .site-header .header-nav .column:first-child .button { min-height: 40px !important; padding-inline: 12px; }
+  body.vectone-v3 .site-header .header-nav .klbth-menu-wrapper.primary { flex: 1 1 100%; }
+  body.vectone-v3 .site-header .header-nav .klbth-menu-wrapper.primary .klbth-menu { justify-content: space-between; gap: 0 10px; }
+  body.vectone-v3 .site-header .header-nav .klbth-menu-wrapper.primary .klbth-menu > .menu-item > a { padding-block: 8px; font-size: 13px !important; white-space: nowrap; }
+}
+
+/* Final scroll-stability guard: one sticky wrapper, no row is removed. */
+body.vectone-v3 .site-header { position: sticky; top: 0; z-index: 60; }
+@media (max-width: 1199px) {
+  body.vectone-v3 .site-header .header-row.hide-below-1200,
+  body.vectone-v3 .site-header .header-row.header-topbar,
+  body.vectone-v3 .site-header .header-row.header-main,
+  body.vectone-v3 .site-header .header-row.header-nav { display: block !important; }
+  body.vectone-v3 .site-header .header-row.hide-above-1200 { display: none !important; }
+}
+@media (max-width: 767px) {
+  body.vectone-v3 .site-header .header-topbar .column.left,
+  body.vectone-v3 .site-header .header-topbar .column.left .vm-topbar-slogan { display: flex !important; }
+  body.vectone-v3 .site-header .header-topbar .column.left .vm-topbar-slogan { font-size: 9px; letter-spacing: .08em; }
+  body.vectone-v3 .site-header .header-topbar .header-inner { justify-content: space-between; gap: 8px; }
+  body.vectone-v3 .site-header .header-topbar .column.right { gap: 6px; }
+}
+
+/* The complete captured header is the sole sticky surface. */
+body.vectone-v3 .site-header { position: sticky !important; top: 0 !important; z-index: 60 !important; }
+body.admin-bar.vectone-v3 .site-header { top: 32px !important; }
+@media (max-width: 782px) {
+  body.admin-bar.vectone-v3 .site-header { top: 46px !important; }
+}
+
+/* Mobile/tablet finish: the desktop navigation row is removed as a whole. */
+@media (max-width: 1024px) {
+  body.vectone-v3 .site-header .header-nav { display: none !important; min-height: 0 !important; height: 0 !important; border: 0 !important; padding: 0 !important; overflow: hidden; }
+  body.vectone-v3 .site-header .header-main .header-inner { padding-bottom: 8px; }
+}
+
+@media (max-width: 767px) {
+  body.vectone-v3 .site-header form.search-form button,
+  body.vectone-v3 .site-header .search-form-wrapper button,
+  body.vectone-v3 .site-header .search-holder button,
+  body.vectone-v3 .site-header .dgwt-wcas-search-submit { min-width: 54px !important; width: 54px !important; padding: 0 !important; font-size: 0 !important; }
+  body.vectone-v3 .site-header form.search-form button .klbth-icon-search,
+  body.vectone-v3 .site-header .search-form-wrapper button .klbth-icon-search,
+  body.vectone-v3 .site-header .search-holder button .klbth-icon-search { display: inline-flex !important; align-items: center; justify-content: center; color: #fff !important; font-size: 20px !important; line-height: 1; }
 }

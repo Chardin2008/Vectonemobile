@@ -13,3 +13,11 @@ partdo-child-checkpoint-*/
 .pages.json
 wp-content/themes/partdo-child-STABLE-SAVE/
 wp-content/themes/partdo-child-broken/
+
+# Local agent metadata, generated migration staging and private evidence
+.codex-*.json
+.codex-api.json
+docs/mission-7-evidence-*/
+migration-package-*/
+vectone-mobile-deployment-*.zip
+wp-content/uploads/

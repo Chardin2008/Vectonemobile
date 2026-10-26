@@ -1,0 +1,259 @@
+/* Pilot visual alignment for the real Sans engagement offers. */
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-loop-intro#vm-sans-offers {
+    margin-top: 26px;
+    padding: 28px 28px 30px;
+    border: 1px solid rgba(18,61,53,.10);
+    border-radius: 20px;
+    background: #f8faf9;
+}
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers > h2 { font-size: clamp(34px,4vw,52px); }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers > p { max-width: 620px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offers { display:grid; gap:12px; margin-top:26px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer {
+    min-height:154px;
+    padding:20px 22px;
+    border-color:rgba(18,61,53,.12);
+    border-radius:16px;
+    background:#fff;
+    box-shadow:0 8px 24px rgba(18,61,53,.04);
+}
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__media img { width:82px; height:64px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer h2 { margin:6px 0 10px; color:#123d35; font-size:clamp(20px,2vw,24px); letter-spacing:-.025em; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__attributes span { border:1px solid rgba(18,61,53,.08); background:#f1f5f3; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer:hover { border-color:#f2384f; box-shadow:0 10px 26px rgba(18,61,53,.07); }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__price { color:#123d35; font-size:25px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__cta { min-height:44px; padding:0 18px; border-radius:10px; background:#f2384f; }
+@media (max-width:767px) {
+    .tax-product_cat.term-forfaits-sans-engagement .vm-sans-loop-intro#vm-sans-offers { padding:24px 16px; border-radius:16px; }
+    .tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer { min-height:0; padding:16px; }
+}
+
+/* Final offer-card model for the Sans engagement pilot. */
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+}
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 24px;
+    border-radius: 18px;
+    box-shadow: 0 14px 38px rgba(18,61,53,.055);
+}
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__media {
+    display: flex;
+    align-items: center;
+    min-height: 68px;
+}
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__media img { width: 88px; height: 68px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__body { flex: 1; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__operator { display: block; margin-top: 14px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer h2 { min-height: 52px; font-size: 22px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__action {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 24px;
+    text-align: left;
+}
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__price { margin: 0; font-size: 34px; line-height: .95; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__cta { flex: 0 0 auto; min-height: 48px; padding: 0 16px; }
+.tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer:hover { transform: translateY(-3px); }
+@media (max-width: 1024px) {
+    .tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+    .tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offers { grid-template-columns: 1fr; }
+    .tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer { padding: 20px; }
+    .tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer h2 { min-height: 0; }
+    .tax-product_cat.term-forfaits-sans-engagement #vm-sans-offers .vm-category-offer__action { margin-top: 20px; }
+}
+
+/* Homepage-inspired horizontal offer cards, using the real WooCommerce markup. */
+.tax-product_cat.term-forfaits-sans-engagement ul.products {
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-wrapper {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr) 190px;
+    align-items: center;
+    min-height: 154px;
+    gap: 20px;
+    padding: 18px 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(18,61,53,.04);
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-content {
+    display: contents;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .thumbnail-wrapper {
+    min-height: 0;
+    justify-content: center;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .thumbnail-wrapper img {
+    width: 80px;
+    height: 72px;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .content-wrapper {
+    min-width: 0;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-title {
+    min-height: 0;
+    margin: 0 0 12px;
+    font-size: clamp(20px, 2vw, 24px);
+    line-height: 1.12;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-attributes .attribute {
+    padding: 5px 8px;
+    border: 1px solid rgba(18,61,53,.08);
+    background: #f1f5f3;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer .price {
+    align-self: flex-start;
+    font-size: 30px;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer .product-footer-inner {
+    width: 100%;
+}
+
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer a {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 9px;
+}
+
+@media (max-width: 767px) {
+    .tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-wrapper {
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer {
+        grid-column: 1 / -1;
+        align-items: stretch;
+    }
+
+    .tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer .price {
+        align-self: flex-start;
+    }
+}
+
+/* Real WooCommerce markup used by this archive. */
+.tax-product_cat.term-forfaits-sans-engagement ul.products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 0;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products::before,
+.tax-product_cat.term-forfaits-sans-engagement ul.products::after { display: none; }
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-wrapper {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    padding: 24px;
+    border: 1px solid rgba(18,61,53,.11);
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 14px 38px rgba(18,61,53,.055);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-wrapper:hover {
+    border-color: #f2384f;
+    box-shadow: 0 16px 40px rgba(18,61,53,.08);
+    transform: translateY(-3px);
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .thumbnail-wrapper {
+    display: flex;
+    align-items: center;
+    min-height: 76px;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .thumbnail-wrapper img {
+    width: 88px;
+    height: 68px;
+    object-fit: contain;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .content-wrapper { flex: 1; }
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-title {
+    min-height: 52px;
+    margin: 16px 0 12px;
+    color: #123d35;
+    font-size: 22px;
+    line-height: 1.05;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-title a { color: inherit; }
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-attributes .attribute {
+    padding: 7px 9px;
+    border-radius: 999px;
+    background: #eaf5f1;
+    color: #526761;
+    font-size: 11px;
+    line-height: 1.3;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-attributes strong { color: #123d35; }
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 24px;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer .price {
+    color: #123d35;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: .95;
+}
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer .product-footer-inner { flex: 0 0 auto; }
+.tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-footer a {
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    border-radius: 10px;
+    background: #f2384f;
+    color: #fff;
+    font-weight: 800;
+}
+@media (max-width: 1024px) {
+    .tax-product_cat.term-forfaits-sans-engagement ul.products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+    .tax-product_cat.term-forfaits-sans-engagement ul.products { grid-template-columns: 1fr; gap: 14px; }
+    .tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-wrapper { padding: 20px; }
+    .tax-product_cat.term-forfaits-sans-engagement ul.products li.product .product-title { min-height: 0; }
+}

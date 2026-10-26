@@ -1,0 +1,250 @@
+/* Shared visual system for product_cat children of forfait-mobile. */
+body.vectone-operator-archive .shop-container {
+  background: #f1f5f3;
+}
+
+body.vectone-operator-archive .klbth-module-slider {
+  display: none;
+}
+
+body.vectone-operator-archive .vm-operator-hero,
+body.vectone-operator-archive .vm-operator-results-heading,
+body.vectone-operator-archive .before-shop-loop,
+body.vectone-operator-archive .products,
+body.vectone-operator-archive .shop-container > .row {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body.vectone-operator-archive .vm-operator-hero {
+  position: relative;
+  overflow: hidden;
+  margin-top: 22px;
+  margin-bottom: 18px;
+  padding: 58px clamp(24px, 6vw, 82px) 62px;
+  border-radius: 22px;
+  background: #eaf5f1;
+  color: #123d35;
+}
+
+body.vectone-operator-archive .vm-operator-hero::after {
+  position: absolute;
+  right: -80px;
+  bottom: -110px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(242, 56, 79, .18);
+  border-radius: 50%;
+  content: "";
+}
+
+body.vectone-operator-archive .vm-operator-hero__signal {
+  display: flex;
+  align-items: end;
+  gap: 4px;
+  width: 20px;
+  height: 15px;
+  margin-bottom: 18px;
+}
+
+body.vectone-operator-archive .vm-operator-hero__signal i {
+  display: block;
+  width: 3px;
+  background: #f2384f;
+}
+body.vectone-operator-archive .vm-operator-hero__signal i:nth-child(1) { height: 6px; }
+body.vectone-operator-archive .vm-operator-hero__signal i:nth-child(2) { height: 10px; }
+body.vectone-operator-archive .vm-operator-hero__signal i:nth-child(3) { height: 15px; }
+
+body.vectone-operator-archive .vm-operator-hero .vm-category-eyebrow { margin-bottom: 10px; }
+body.vectone-operator-archive .vm-operator-hero h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0;
+  color: #123d35;
+  font-size: clamp(42px, 5vw, 58px);
+  line-height: .98;
+  letter-spacing: -.04em;
+}
+body.vectone-operator-archive .vm-operator-hero p {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 20px 0 0;
+  color: #405a54;
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+body.vectone-operator-archive .vm-operator-results-heading {
+  padding: 28px 0 16px;
+}
+body.vectone-operator-archive .vm-operator-results-heading h2 {
+  margin: 0;
+  color: #123d35;
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.05;
+  letter-spacing: -.03em;
+}
+body.vectone-operator-archive .vm-operator-results-heading p {
+  margin: 10px 0 0;
+  color: #526761;
+}
+
+body.vectone-operator-archive .before-shop-loop {
+  padding-top: 8px;
+}
+body.vectone-operator-archive .woocommerce-result-count { color: #526761; }
+body.vectone-operator-archive .sorting-products { border-color: rgba(18,61,53,.12); }
+body.vectone-operator-archive .filtered-sidebar {
+  max-width: 290px;
+  padding: 20px;
+  border: 1px solid rgba(18,61,53,.12);
+  border-radius: 16px;
+  background: #fcfdfc;
+}
+body.vectone-operator-archive .products {
+  gap: 16px;
+}
+body.vectone-operator-archive .products .product-wrapper {
+  border: 1px solid rgba(18,61,53,.12);
+  border-radius: 18px;
+  background: #fcfdfc;
+  box-shadow: 0 6px 18px rgba(18,61,53,.05);
+  transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+body.vectone-operator-archive .products .product-wrapper:hover {
+  border-color: rgba(242,56,79,.55);
+  box-shadow: 0 10px 24px rgba(18,61,53,.08);
+  transform: translateY(-2px);
+}
+body.vectone-operator-archive .products .product-title a { color: #123d35; }
+body.vectone-operator-archive .products .product-footer .button,
+body.vectone-operator-archive .products .product-footer-inner .button { background: #f2384f; color: #fff; }
+
+@media (max-width: 991px) {
+  body.vectone-operator-archive .filtered-sidebar { max-width: none; }
+}
+
+@media (max-width: 767px) {
+  body.vectone-operator-archive .vm-operator-hero { margin: 14px 14px 12px; padding: 38px 24px 42px; border-radius: 18px; }
+  body.vectone-operator-archive .vm-operator-hero h1 { font-size: clamp(34px, 10vw, 42px); }
+  body.vectone-operator-archive .vm-operator-hero p { font-size: 16px; }
+  body.vectone-operator-archive .vm-operator-results-heading { padding: 24px 14px 12px; }
+  body.vectone-operator-archive .before-shop-loop { padding: 8px 14px 0; }
+  body.vectone-operator-archive .products { padding: 0 14px; }
+  body.vectone-operator-archive .filtered-sidebar { margin: 0 14px 16px; padding: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.vectone-operator-archive .products .product-wrapper { transition: none; }
+}
+
+/* Operator editorial content: readable long-form copy without changing its source. */
+body.vectone-operator-archive #seo_texte {
+  max-width: 1240px;
+  margin: 42px auto 0;
+  padding: 0 24px 72px;
+}
+body.vectone-operator-archive #seo_texte > .e-con-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0;
+}
+body.vectone-operator-archive #seo_texte .elementor-widget-text-editor {
+  padding: 34px 42px;
+  border: 1px solid rgba(18,61,53,.12);
+  border-radius: 18px;
+  background: #fcfdfc;
+}
+body.vectone-operator-archive #seo_texte h2 {
+  margin: 0 0 18px;
+  color: #123d35;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.08;
+  letter-spacing: -.025em;
+}
+body.vectone-operator-archive #seo_texte h3,
+body.vectone-operator-archive #seo_texte h4 {
+  margin: 30px 0 10px;
+  color: #123d35;
+  line-height: 1.2;
+}
+body.vectone-operator-archive #seo_texte p,
+body.vectone-operator-archive #seo_texte li {
+  max-width: 720px;
+  color: #405a54;
+  font-size: 16px;
+  line-height: 1.72;
+}
+body.vectone-operator-archive #seo_texte p { margin: 0 0 16px; }
+body.vectone-operator-archive #seo_texte ul,
+body.vectone-operator-archive #seo_texte ol { max-width: 720px; margin: 12px 0 22px; padding-left: 22px; }
+body.vectone-operator-archive #seo_texte strong,
+body.vectone-operator-archive #seo_texte b { color: #123d35; font-weight: 700; }
+body.vectone-operator-archive #seo_texte table {
+  width: 100%;
+  max-width: 720px;
+  margin: 24px 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border: 1px solid rgba(18,61,53,.12);
+  border-radius: 10px;
+  color: #405a54;
+  font-size: 14px;
+}
+body.vectone-operator-archive #seo_texte td {
+  padding: 11px 13px;
+  border-bottom: 1px solid rgba(18,61,53,.08);
+}
+body.vectone-operator-archive #seo_texte tr:last-child td { border-bottom: 0; }
+body.vectone-operator-archive #seo_texte .show_more { margin-top: 18px; }
+body.vectone-operator-archive #seo_texte .show_more .wpsm-show {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid #f2384f;
+  border-radius: 8px;
+  color: #f2384f !important;
+  font-size: 14px !important;
+  font-weight: 700;
+  cursor: pointer;
+}
+body.vectone-operator-archive #seo_texte .show_more .wpsm-show:hover { background: #f2384f; color: #fff !important; }
+
+/* Final operator UI alignment: visual only, with WooCommerce queries untouched. */
+body.vectone-operator-archive .before-shop-loop,
+body.vectone-operator-archive .sorting-products { border-radius: 10px; }
+body.vectone-operator-archive .products .product-wrapper {
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(16,61,53,.05);
+}
+body.vectone-operator-archive .products .product-title a { line-height: 1.22; }
+body.vectone-operator-archive .products .price { font-size: 24px; font-weight: 800; }
+body.vectone-operator-archive .filtered-sidebar { border-radius: 14px; }
+
+/* Tablet safety: prevent Bootstrap columns and product grids from forcing width. */
+@media (max-width: 1024px) and (min-width: 768px) {
+  body.vectone-operator-archive .shop-container > .row,
+  body.vectone-operator-archive .products,
+  body.vectone-operator-archive .products .column-item { min-width: 0; }
+  body.vectone-operator-archive .products .product-wrapper { min-width: 0; }
+}
+
+@media (max-width: 767px) {
+  body.vectone-operator-archive #seo_texte { margin-top: 28px; padding: 0 14px 48px; }
+  body.vectone-operator-archive #seo_texte .elementor-widget-text-editor { padding: 24px 20px; border-radius: 14px; }
+  body.vectone-operator-archive #seo_texte h2 { font-size: 28px; }
+  body.vectone-operator-archive #seo_texte p,
+  body.vectone-operator-archive #seo_texte li { font-size: 15px; line-height: 1.62; }
+  body.vectone-operator-archive #seo_texte table { display: block; overflow-x: auto; white-space: nowrap; }
+  body.vectone-operator-archive .before-shop-loop,
+  body.vectone-operator-archive .sorting-products { margin-inline: 14px; }
+  body.vectone-operator-archive .products .product-wrapper { box-shadow: none; }
+}
+

@@ -1,0 +1,13 @@
+.vm-prixtel-mobile-hero { display:none !important; }
+@media (max-width:768px) {
+    .vm-prixtel-mobile-hero { display:block; margin:12px 10px 24px; overflow:hidden; border:1px solid rgba(18,61,53,.10); border-radius:18px; background:#f5f8f6; }
+    .vm-prixtel-mobile-hero__media { width:100%; height:260px; overflow:hidden; }
+    .vm-prixtel-mobile-hero__media img { display:block; width:100%; height:100%; object-fit:cover; object-position:center center; }
+    .vm-prixtel-mobile-hero__content { padding:26px 22px 28px; background:#f5f8f6; }
+    .vm-prixtel-mobile-hero__label { color:#f2384f; font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .vm-prixtel-mobile-hero__title { margin:10px 0 0; color:#123d35; font-size:clamp(38px,10.5vw,46px); font-weight:800; line-height:.95; letter-spacing:-.04em; }
+    .vm-prixtel-mobile-hero__description { margin:18px 0 0; color:#788783; font-size:15px; line-height:1.55; }
+    .vm-prixtel-mobile-hero__price { margin-top:26px; color:#123d35; font-size:32px; font-weight:800; line-height:1; }
+    .vm-prixtel-mobile-hero__cta { display:flex; width:100%; min-height:52px; align-items:center; justify-content:center; margin-top:22px; border-radius:12px; background:#f2384f; color:#fff; font-weight:800; text-decoration:none; }
+    body.home.vectone-v3 .elementor-element-7e305b1.vm-mobile-hero-source-hidden { display:none; }
+}

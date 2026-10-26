@@ -1,0 +1,227 @@
+/* Vectone V3 foundation: shared rhythm and interaction language. */
+body.vectone-v3 {
+  --vm-section-gap: clamp(44px, 5vw, 72px);
+  overflow-x: hidden;
+}
+
+body.vectone-v3 #main,
+body.vectone-v3 #content { background: var(--vm-cloud); }
+
+body.vectone-v3 .vm-v3-section,
+body.vectone-v3 .vm-awin-section,
+body.vectone-v3 .vm-v3-magazine-rail {
+  width: min(var(--vm-container), calc(100% - 48px));
+  margin-inline: auto;
+}
+
+body.vectone-v3 .vm-v3-section + .vm-v3-section,
+body.vectone-v3 .vm-v3-section + .vm-awin-section,
+body.vectone-v3 .vm-awin-section + .vm-v3-section { margin-top: var(--vm-section-gap); }
+
+body.vectone-v3 h1,
+body.vectone-v3 h2,
+body.vectone-v3 h3 { text-wrap: balance; }
+
+body.vectone-v3 .vm-v3-eyebrow,
+body.vectone-v3 .vm-awin-eyebrow { font-size: 10px; letter-spacing: .16em; line-height: 1.3; }
+
+body.vectone-v3 a,
+body.vectone-v3 button { -webkit-tap-highlight-color: transparent; }
+
+body.vectone-v3 a:focus-visible,
+body.vectone-v3 button:focus-visible { outline: 2px solid var(--vm-signal); outline-offset: 3px; }
+
+body.vectone-v3 .btn,
+body.vectone-v3 .button,
+body.vectone-v3 .primary { transition: transform .2s var(--vm-ease), background-color .2s var(--vm-ease), border-color .2s var(--vm-ease), color .2s var(--vm-ease); }
+
+body.vectone-v3 .btn:hover,
+body.vectone-v3 .button:hover,
+body.vectone-v3 .primary:hover { transform: translateY(-1px); }
+
+body.vectone-v3 .btn,
+body.vectone-v3 .button,
+body.vectone-v3 .primary { min-height: 48px; padding-block: 10px; font-size: 15px; }
+
+/* Shared UI language: restrained controls, readable type and consistent rhythm. */
+body.vectone-v3 :is(input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  border: 1px solid var(--vm-line);
+  border-radius: var(--vm-radius-sm);
+  background: var(--vm-white);
+  color: var(--vm-text);
+  font-size: var(--vm-text-body);
+}
+body.vectone-v3 :is(input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]), select) {
+  min-height: 48px;
+  padding-inline: var(--vm-space-3);
+}
+body.vectone-v3 textarea { min-height: 132px; padding: var(--vm-space-3); }
+body.vectone-v3 :is(input, select, textarea):focus-visible {
+  border-color: var(--vm-forest-soft);
+  box-shadow: 0 0 0 3px rgba(216,255,98,.28);
+  outline: none;
+}
+body.vectone-v3 :is(.button, .btn, button[type="submit"], input[type="submit"]) {
+  border-radius: var(--vm-radius-sm);
+  font-weight: 700;
+  line-height: 1.2;
+}
+body.vectone-v3 :is(.vm-v3-section, .vm-awin-section, .vm-v3-magazine-rail, .vm-category-page) {
+  scroll-margin-top: 190px;
+}
+
+/* Responsive safety: keep media and form controls inside their layout. */
+html body.vectone-v3 img,
+html body.vectone-v3 picture,
+html body.vectone-v3 video,
+html body.vectone-v3 iframe,
+html body.vectone-v3 svg { max-width: 100%; }
+html body.vectone-v3 input,
+html body.vectone-v3 select,
+html body.vectone-v3 textarea { box-sizing: border-box; max-width: 100%; }
+html body.vectone-v3 p,
+html body.vectone-v3 li,
+html body.vectone-v3 td,
+html body.vectone-v3 th { overflow-wrap: anywhere; }
+
+@media (max-width: 767px) {
+  body.vectone-v3 .vm-v3-section,
+  body.vectone-v3 .vm-awin-section,
+  body.vectone-v3 .vm-v3-magazine-rail { width: calc(100% - 24px); }
+  body.vectone-v3 .vm-v3-section + .vm-v3-section,
+  body.vectone-v3 .vm-v3-section + .vm-awin-section,
+  body.vectone-v3 .vm-awin-section + .vm-v3-section { margin-top: 48px; }
+}
+
+/* Global responsive pass: keep existing components usable at tablet and phone widths. */
+@media (max-width: 1024px) {
+  html body.vectone-v3 .container,
+  html body.vectone-v3 .site-container,
+  html body.vectone-v3 .elementor-container,
+  html body.vectone-v3 .e-con-inner { max-width: 100%; }
+  html body.vectone-v3 .row { min-width: 0; }
+  html body.vectone-v3 .column,
+  html body.vectone-v3 [class*="col-"] { min-width: 0; }
+}
+
+@media (max-width: 767px) {
+  html body.vectone-v3 .container,
+  html body.vectone-v3 .site-container { width: calc(100% - 32px); }
+  html body.vectone-v3 .row { margin-left: 0; margin-right: 0; }
+  html body.vectone-v3 .button,
+  html body.vectone-v3 .btn,
+  html body.vectone-v3 button,
+  html body.vectone-v3 input[type="submit"] { max-width: 100%; }
+  html body.vectone-v3 pre,
+  html body.vectone-v3 code { max-width: 100%; overflow-x: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.vectone-v3 *, body.vectone-v3 *::before, body.vectone-v3 *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Final density pass: normalize existing internal components without changing their structure. */
+html body.vectone-v3 .vm-sans-hero h1,
+html body.vectone-v3 .vm-data-page h1 { font-size: clamp(42px, 4.5vw, 56px); }
+html body.vectone-v3 .vm-sans-section-heading h2,
+html body.vectone-v3 .vm-sans-loop-intro h2,
+html body.vectone-v3 .vm-sans-guide h2,
+html body.vectone-v3 .vm-sans-faq h2,
+html body.vectone-v3 .vm-sans-final-cta h2 { font-size: clamp(30px, 3.2vw, 46px); }
+body.vectone-v3 .vm-sans-hero__content { padding: 38px 28px 38px 44px; }
+body.vectone-v3 .vm-sans-benefits__grid article,
+body.vectone-v3 .vm-sans-guide__profiles article,
+body.vectone-v3 .vm-sans-advice { padding: 20px; }
+body.vectone-v3 .vm-sans-guide { margin-top: 36px; padding-top: 38px; padding-bottom: 38px; }
+body.vectone-v3 .vm-sans-final-cta { padding-top: 28px; padding-bottom: 28px; }
+body.home.vectone-v3 .vm-v3-network-signal { padding-block: 44px; }
+body.home.vectone-v3 .vm-v3-network-signal__copy h2 { font-size: clamp(30px, 3vw, 46px); }
+body.home.vectone-v3 .vm-v3-needs h2 { font-size: clamp(34px, 3.6vw, 50px); }
+body.home.vectone-v3 .vm-v3-editorial-guide__head h2,
+body.home.vectone-v3 .vm-v3-editorial-magazine__head h2,
+body.home.vectone-v3 .vm-v3-reviews-trust__head h2 { font-size: clamp(32px, 3.6vw, 48px); }
+
+@media (max-width: 767px) {
+  html body.vectone-v3 .vm-sans-hero h1,
+  html body.vectone-v3 .vm-data-page h1 { font-size: clamp(34px, 10vw, 42px); }
+  html body.vectone-v3 .vm-sans-section-heading h2,
+  html body.vectone-v3 .vm-sans-loop-intro h2,
+  html body.vectone-v3 .vm-sans-guide h2,
+  html body.vectone-v3 .vm-sans-faq h2,
+  html body.vectone-v3 .vm-sans-final-cta h2 { font-size: clamp(28px, 8vw, 34px); }
+  body.vectone-v3 .vm-sans-hero__content { padding: 24px 20px; }
+  body.vectone-v3 .vm-sans-benefits__grid article,
+  body.vectone-v3 .vm-sans-guide__profiles article,
+  body.vectone-v3 .vm-sans-advice { padding: 16px; }
+  body.vectone-v3 .vm-sans-guide { margin-top: 24px; padding-top: 32px; padding-bottom: 32px; }
+  body.home.vectone-v3 .vm-v3-network-signal { padding-block: 34px; }
+  body.home.vectone-v3 .vm-v3-network-signal__copy h2 { font-size: clamp(28px, 8vw, 34px); }
+  body.home.vectone-v3 .vm-v3-needs h2 { font-size: clamp(30px, 8vw, 40px); }
+}
+
+/* Global responsive coherence: preserve breathing room across shared components. */
+@media (max-width: 1024px) {
+  html body.vectone-v3 .vm-v3-section,
+  html body.vectone-v3 .vm-awin-section,
+  html body.vectone-v3 .vm-v3-magazine-rail,
+  html body.vectone-v3 .vm-category-page,
+  html body.vectone-v3 .vm-data-page {
+    width: min(100% - 40px, var(--vm-container));
+  }
+}
+
+@media (max-width: 767px) {
+  html body.vectone-v3 .vm-v3-section,
+  html body.vectone-v3 .vm-awin-section,
+  html body.vectone-v3 .vm-v3-magazine-rail,
+  html body.vectone-v3 .vm-category-page,
+  html body.vectone-v3 .vm-data-page {
+    width: calc(100% - 32px);
+  }
+
+  html body.vectone-v3 .vm-v3-section + .vm-v3-section,
+  html body.vectone-v3 .vm-v3-section + .vm-awin-section,
+  html body.vectone-v3 .vm-awin-section + .vm-v3-section {
+    margin-top: 56px;
+  }
+
+  html body.vectone-v3 .vm-category-hero,
+  html body.vectone-v3 .vm-sans-hero,
+  html body.vectone-v3 .vm-operator-hero {
+    margin-top: 24px;
+    margin-bottom: 28px;
+  }
+
+  html body.vectone-v3 .vm-category-hero,
+  html body.vectone-v3 .vm-sans-hero__content,
+  html body.vectone-v3 .vm-operator-hero {
+    padding-inline: 24px;
+  }
+
+  html body.vectone-v3 .vm-category-offer,
+  html body.vectone-v3 .vm-awin-card,
+  html body.vectone-v3 .vm-sans-benefits__grid article,
+  html body.vectone-v3 .vm-sans-guide__profiles article {
+    padding: 22px 20px;
+  }
+
+  html body.vectone-v3 .vm-category-offers,
+  html body.vectone-v3 .vm-awin-grid,
+  html body.vectone-v3 .vm-sans-benefits__grid,
+  html body.vectone-v3 .vm-sans-guide__profiles {
+    gap: 18px;
+  }
+
+  html body.vectone-v3 .vm-category-offer__attributes,
+  html body.vectone-v3 .vm-sans-hero__actions {
+    gap: 10px;
+  }
+
+  html body.vectone-v3 .vm-category-offer__attributes span {
+    padding: 7px 10px;
+    line-height: 1.3;
+  }
+}

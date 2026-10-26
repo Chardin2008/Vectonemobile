@@ -50,6 +50,16 @@
 
 .vectone-compare-bar strong { white-space: nowrap; }
 
+.vectone-compare-bar__top,
+.vectone-compare-bar__actions { display: flex; align-items: center; gap: 10px; }
+.vectone-compare-bar__top { flex: 0 0 auto; }
+.vectone-compare-bar__items { display: flex; min-width: 0; flex: 1 1 auto; gap: 8px; overflow-x: auto; }
+.vectone-compare-bar__item { display: inline-flex; min-width: 0; align-items: center; gap: 7px; padding: 8px 10px 8px 12px; border: 1px solid rgba(255,255,255,.14); border-radius: 10px; background: rgba(24,61,53,.08); }
+.vectone-compare-bar__item-label { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 700; }
+.vectone-compare-bar__remove { display: inline-flex; width: 26px; height: 26px; align-items: center; justify-content: center; flex: 0 0 26px; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; font: inherit; font-size: 18px; line-height: 1; }
+.vectone-compare-bar__remove:hover, .vectone-compare-bar__remove:focus-visible { background: rgba(242,56,79,.18); color: #f2384f; }
+.vectone-compare-bar__clear { border: 0; background: transparent; color: #183d35; cursor: pointer; font: inherit; font-size: 13px; text-decoration: underline; white-space: nowrap; }
+
 .vectone-compare-bar [data-compare-open] {
     min-height: 44px;
     padding: 0 18px;
@@ -162,7 +172,11 @@
 }
 
 @media (max-width: 700px) {
-    .vectone-compare-bar { right: 12px; bottom: 12px; left: 12px; gap: 10px; font-size: 13px; }
+    .vectone-compare-bar { right: 12px; bottom: 12px; left: 12px; display: grid; grid-template-columns: 1fr auto; gap: 8px; font-size: 13px; }
+    .vectone-compare-bar__top { grid-column: 1 / -1; justify-content: space-between; }
+    .vectone-compare-bar__items { grid-column: 1 / -1; width: 100%; }
+    .vectone-compare-bar__actions { justify-content: flex-end; grid-column: 1 / -1; }
+    .vectone-compare-bar__item-label { max-width: 125px; }
     .vectone-compare-bar [data-compare-open] { padding: 0 12px; }
     .vectone-compare-modal { padding: 12px; }
     .vectone-compare-modal__grid { display: flex; overflow-x: auto; }

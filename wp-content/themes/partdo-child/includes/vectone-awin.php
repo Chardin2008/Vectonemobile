@@ -5,7 +5,7 @@
  * Campaign URLs are intentionally kept as explicit source values.
  */
 function vectone_awin_campaigns() {
-    return array(
+    $defaults = array(
         array(
             'name'     => 'France Telephone',
             'text'     => 'Découvrez les offres mobile disponibles chez notre partenaire.',
@@ -28,9 +28,23 @@ function vectone_awin_campaigns() {
             'variant'  => 'secondary',
         ),
     );
+    $configured = get_option( 'vectone_awin_campaigns', array() );
+    foreach ( $defaults as $index => $default ) {
+        if ( ! is_array( $configured[ $index ] ?? null ) ) continue;
+        foreach ( array( 'name', 'text', 'url', 'position', 'variant' ) as $key ) {
+            if ( isset( $configured[ $index ][ $key ] ) && '' !== $configured[ $index ][ $key ] ) $defaults[ $index ][ $key ] = $configured[ $index ][ $key ];
+        }
+    }
+    return $defaults;
 }
 
 function vectone_awin_render_campaign( $campaign ) {
+    $images = array(
+        'France Telephone' => 'awin-france-telephone.webp',
+        'CDiscount Mobile' => 'awin-cdiscount-mobile.webp',
+        'Syma Mobile'      => 'awin-syma-mobile.webp',
+    );
+    $image_url = isset( $images[ $campaign['name'] ] ) ? get_stylesheet_directory_uri() . '/assets/vectone-v3/images/' . $images[ $campaign['name'] ] : '';
     $cta = $campaign['variant'] === 'primary' ? "Découvrir l'offre" : ( $campaign['name'] === 'Syma Mobile' ? 'Découvrir' : 'Voir les offres' );
     ?>
     <article class="vm-awin-card vm-awin-card--<?php echo esc_attr( $campaign['variant'] ); ?>">
@@ -42,7 +56,7 @@ function vectone_awin_render_campaign( $campaign ) {
                 <?php echo esc_html( $cta ); ?> <span aria-hidden="true">→</span>
             </a>
         </div>
-        <span class="vm-awin-card__visual" aria-hidden="true"><span></span><i></i></span>
+        <span class="vm-awin-card__visual" aria-hidden="true" style="background-image: url('<?php echo esc_url( $image_url ); ?>');"></span>
     </article>
     <?php
 }
@@ -61,11 +75,10 @@ function vectone_awin_render_section() {
     <section class="vm-awin-section" aria-labelledby="vm-awin-title">
         <div class="vm-awin-section__head">
             <div>
-                <p class="vm-awin-eyebrow">Partenaires</p>
+                <p class="vm-awin-eyebrow">Sélection partenaires</p>
                 <h2 id="vm-awin-title">Téléphones &amp; bons plans mobile.</h2>
                 <p class="vm-awin-section__intro">Découvrez une sélection d’offres proposées par nos partenaires.</p>
             </div>
-            <p class="vm-awin-disclosure">Liens partenaires — Vectone peut percevoir une commission.</p>
         </div>
         <div class="vm-awin-grid">
             <?php foreach ( $campaigns as $campaign ) : ?>

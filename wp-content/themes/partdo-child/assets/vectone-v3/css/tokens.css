@@ -12,8 +12,23 @@
   --vm-muted: #65736E;
   --vm-line: rgba(16,61,53,.14);
   --vm-line-strong: rgba(16,61,53,.24);
-  --vm-container: 1320px;
+  --vm-container: 1280px;
   --vm-radius: 18px;
+  --vm-radius-sm: 10px;
+  --vm-radius-md: 14px;
+  --vm-space-1: 8px;
+  --vm-space-2: 12px;
+  --vm-space-3: 16px;
+  --vm-space-4: 24px;
+  --vm-space-5: 32px;
+  --vm-space-6: 48px;
+  --vm-space-7: 64px;
+  --vm-space-8: 80px;
+  --vm-text-body: 16px;
+  --vm-text-small: 13px;
+  --vm-text-h3: clamp(22px, 2vw, 28px);
+  --vm-text-h2: clamp(34px, 3.2vw, 44px);
+  --vm-text-h1: clamp(42px, 4.5vw, 60px);
   --vm-shadow: 0 18px 50px rgba(16,61,53,.08);
   --vm-ease: cubic-bezier(.2,.72,.2,1);
 }

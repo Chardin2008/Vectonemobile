@@ -1,0 +1,66 @@
+/* Pilot visual alignment for the real guide and FAQ blocks. */
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide {
+    margin-top: 56px;
+    padding: 58px 32px 48px;
+    border-radius: 22px;
+    background: #f7faf8;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide h2,
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-faq h2 {
+    color: #123d35;
+    font-size: clamp(36px,4.2vw,58px);
+    letter-spacing: -.045em;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide__intro {
+    max-width: 680px;
+    margin-top: 18px;
+    font-size: 18px;
+    line-height: 1.55;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide__profiles {
+    gap: 12px;
+    margin-top: 30px;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide__profiles article {
+    min-height: 150px;
+    padding: 24px;
+    border: 1px solid rgba(18,61,53,.11);
+    border-radius: 16px;
+    background: #fff;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide__profiles h3 {
+    margin-top: 16px;
+    color: #123d35;
+    font-size: 18px;
+    letter-spacing: .04em;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-advice {
+    margin-top: 24px;
+    padding: 24px 26px;
+    border-radius: 16px;
+    background: #123d35;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-faq {
+    padding-top: 62px;
+    padding-bottom: 46px;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-faq details {
+    border-top: 1px solid rgba(18,61,53,.13);
+    border-bottom: 0;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-faq details:last-child { border-bottom: 1px solid rgba(18,61,53,.13); }
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-faq summary {
+    padding: 20px 6px;
+    font-size: 16px;
+}
+.tax-product_cat.term-forfaits-sans-engagement .vm-sans-faq details p {
+    max-width: 760px;
+    padding: 0 6px 20px;
+    font-size: 16px;
+}
+@media (max-width:767px) {
+    .tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide { margin-top: 36px; padding: 40px 16px 32px; border-radius: 18px; }
+    .tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide__profiles { margin-top: 22px; }
+    .tax-product_cat.term-forfaits-sans-engagement .vm-sans-guide__profiles article { min-height: 0; padding: 20px; }
+    .tax-product_cat.term-forfaits-sans-engagement .vm-sans-faq { padding-top: 44px; padding-bottom: 32px; }
+}

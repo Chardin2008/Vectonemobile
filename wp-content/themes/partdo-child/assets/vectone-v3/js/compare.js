@@ -1,162 +1,19 @@
 (function () {
   'use strict';
-
-  var maxSelected = 3;
-  var selected = [];
-  var previousBodyOverflow = '';
-
-  function textOf(element) {
-    return element ? element.textContent.replace(/\s+/g, ' ').trim() : '';
-  }
-
-  function products() {
-    return Array.prototype.slice.call(document.querySelectorAll('body .products .product-wrapper')).filter(function (product) {
-      return product.offsetParent !== null;
-    });
-  }
-
-  function realLink(product) {
-    return product.querySelector('.product-footer a[href], .product-title a[href], .product-thumbnail[href]');
-  }
-
-  function productData(product) {
-    var title = product.querySelector('.product-title');
-    var image = product.querySelector('.thumbnail-wrapper img');
-    var dataMatch = textOf(product).match(/(\d+(?:[.,]\d+)?)\s*(Go|GB)\b/i);
-    return {
-      title: textOf(title),
-      price: textOf(product.querySelector('.price')),
-      image: image ? (image.getAttribute('data-src') || image.currentSrc || image.getAttribute('src') || '') : '',
-      attributes: Array.prototype.slice.call(product.querySelectorAll('.product-attributes .attribute')).map(textOf).filter(Boolean),
-      data: dataMatch ? dataMatch[1].replace(',', '.') + ' ' + dataMatch[2].toUpperCase() : '',
-      link: realLink(product)
-    };
-  }
-
-  function updateBar() {
-    var bar = document.querySelector('.vectone-compare-bar');
-    if (!bar) return;
-    var count = bar.querySelector('[data-compare-count]');
-    var open = bar.querySelector('[data-compare-open]');
-    if (count) count.textContent = selected.length + ' / ' + maxSelected;
-    if (open) open.disabled = selected.length < 2;
-    bar.hidden = selected.length === 0;
-  }
-
-  function closeModal() {
-    var modal = document.querySelector('.vectone-compare-modal');
-    if (!modal) return;
-    modal.hidden = true;
-    document.body.style.overflow = previousBodyOverflow;
-  }
-
-  function addText(parent, tag, className, value) {
-    if (!value) return;
-    var element = document.createElement(tag);
-    element.className = className;
-    element.textContent = value;
-    parent.appendChild(element);
-  }
-
-  function renderModal() {
-    var modal = document.querySelector('.vectone-compare-modal');
-    var grid = modal && modal.querySelector('.vectone-compare-modal__grid');
-    if (!modal || !grid) return;
-    grid.textContent = '';
-    selected.forEach(function (product) {
-      var data = productData(product);
-      var item = document.createElement('article');
-      item.className = 'vectone-compare-modal__item';
-      if (data.image) {
-        var image = document.createElement('img');
-        image.className = 'vectone-compare-modal__logo';
-        image.src = data.image;
-        image.alt = data.title;
-        item.appendChild(image);
-      }
-      addText(item, 'h3', 'vectone-compare-modal__title', data.title);
-      addText(item, 'strong', 'vectone-compare-modal__data', data.data);
-      addText(item, 'p', 'vectone-compare-modal__price', data.price);
-      data.attributes.forEach(function (attribute) { addText(item, 'p', 'vectone-compare-modal__attribute', attribute); });
-      if (/\b5G\b/i.test(data.attributes.join(' ') + ' ' + data.title)) addText(item, 'p', 'vectone-compare-modal__attribute', '5G');
-      if (data.link && data.link.getAttribute('href')) {
-        var link = data.link.cloneNode(true);
-        link.className = 'vectone-compare-modal__cta';
-        link.textContent = "Voir l'offre →";
-        item.appendChild(link);
-      }
-      grid.appendChild(item);
-    });
-    modal.hidden = false;
-    previousBodyOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-  }
-
-  function createModal() {
-    if (document.querySelector('.vectone-compare-modal')) return;
-    var modal = document.createElement('div');
-    modal.className = 'vectone-compare-modal';
-    modal.hidden = true;
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-labelledby', 'vectone-compare-title');
-    var backdrop = document.createElement('div');
-    backdrop.className = 'vectone-compare-modal__backdrop';
-    var panel = document.createElement('section');
-    panel.className = 'vectone-compare-modal__panel';
-    var close = document.createElement('button');
-    close.type = 'button';
-    close.className = 'vectone-compare-modal__close';
-    close.setAttribute('aria-label', 'Fermer');
-    close.textContent = '×';
-    close.addEventListener('click', closeModal);
-    var eyebrow = document.createElement('p');
-    eyebrow.className = 'vectone-compare-modal__eyebrow';
-    eyebrow.textContent = 'Comparateur';
-    var title = document.createElement('h2');
-    title.id = 'vectone-compare-title';
-    title.textContent = 'Comparez vos choix';
-    var subtitle = document.createElement('p');
-    subtitle.className = 'vectone-compare-modal__subtitle';
-    subtitle.textContent = 'Les différences essentielles, côte à côte.';
-    var grid = document.createElement('div');
-    grid.className = 'vectone-compare-modal__grid';
-    panel.appendChild(close); panel.appendChild(eyebrow); panel.appendChild(title); panel.appendChild(subtitle); panel.appendChild(grid);
-    modal.appendChild(backdrop); modal.appendChild(panel); document.body.appendChild(modal);
-    backdrop.addEventListener('click', closeModal);
-  }
-
-  function toggle(product, button) {
-    var index = selected.indexOf(product);
-    if (index !== -1) {
-      selected.splice(index, 1); product.classList.remove('is-compare-selected'); button.classList.remove('is-added'); button.textContent = '+ Comparer'; updateBar(); return;
-    }
-    if (selected.length >= maxSelected) return;
-    selected.push(product); product.classList.add('is-compare-selected'); button.classList.add('is-added'); button.textContent = '✓ Ajouté'; updateBar();
-  }
-
-  function setup() {
-    var list = products();
-    if (!list.length || document.querySelector('.vectone-compare-bar')) return;
-    list.forEach(function (product) {
-      var footer = product.querySelector('.product-footer-inner, .product-footer');
-      if (!footer || !product.querySelector('.product-title') || !product.querySelector('.price') || !realLink(product)) return;
-      if (footer.querySelector('.vectone-compare-button')) return;
-      var button = document.createElement('button');
-      button.type = 'button'; button.className = 'vectone-compare-button'; button.textContent = '+ Comparer';
-      button.addEventListener('click', function () { toggle(product, button); });
-      footer.appendChild(button);
-    });
-    var bar = document.createElement('div');
-    bar.className = 'vectone-compare-bar'; bar.hidden = true;
-    bar.innerHTML = '<span>Comparer vos choix</span><strong data-compare-count>0 / 3</strong><button type="button" data-compare-open disabled>Comparer <span aria-hidden="true">→</span></button>';
-    document.body.appendChild(bar);
-    createModal();
-    var open = bar.querySelector('[data-compare-open]');
-    if (open) open.addEventListener('click', function () { if (selected.length >= 2) renderModal(); });
-    updateBar();
-  }
-
-  document.addEventListener('keydown', function (event) { if (event.key === 'Escape') closeModal(); });
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
+  var maxSelected = 3, selected = [], previousBodyOverflow = '';
+  function textOf(el) { return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; }
+  function products() { return Array.prototype.slice.call(document.querySelectorAll('body .products .product-wrapper')).filter(function (p) { return p.offsetParent !== null; }); }
+  function realLink(p) { return p.querySelector('.product-footer a[href], .product-title a[href], .product-thumbnail[href]'); }
+  function productData(p) { var title=p.querySelector('.product-title'),image=p.querySelector('.thumbnail-wrapper img'),match=textOf(p).match(/(\d+(?:[.,]\d+)?)\s*(Go|GB)\b/i); return {title:textOf(title),price:textOf(p.querySelector('.price')),image:image?(image.getAttribute('data-src')||image.currentSrc||image.getAttribute('src')||''):'',attributes:Array.prototype.slice.call(p.querySelectorAll('.product-attributes .attribute')).map(textOf).filter(Boolean),data:match?match[1].replace(',','.')+' '+match[2].toUpperCase():'',link:realLink(p)}; }
+  function syncProduct(p,active){p.classList.toggle('is-compare-selected',active);var b=p.querySelector('.vectone-compare-button');if(b){b.classList.toggle('is-added',active);b.textContent=active?'✓ Ajouté':'+ Comparer';b.setAttribute('aria-pressed',active?'true':'false');}}
+  function closeModal(){var m=document.querySelector('.vectone-compare-modal');if(m){m.hidden=true;document.body.style.overflow=previousBodyOverflow;}}
+  function updateBar(){var bar=document.querySelector('.vectone-compare-bar');if(!bar)return;bar.querySelector('[data-compare-count]').textContent=selected.length+' / '+maxSelected;bar.querySelector('[data-compare-open]').disabled=selected.length<2;var items=bar.querySelector('[data-compare-items]');items.textContent='';selected.forEach(function(p){var d=productData(p),chip=document.createElement('span'),label=document.createElement('span'),remove=document.createElement('button');chip.className='vectone-compare-bar__item';label.className='vectone-compare-bar__item-label';label.textContent=d.title||'Offre sélectionnée';remove.type='button';remove.className='vectone-compare-bar__remove';remove.setAttribute('aria-label','Retirer '+(d.title||'cette offre')+' de la comparaison');remove.textContent='×';remove.addEventListener('click',function(){removeProduct(p);});chip.appendChild(label);chip.appendChild(remove);items.appendChild(chip);});bar.hidden=selected.length===0;}
+  function removeProduct(p){var i=selected.indexOf(p);if(i<0)return;selected.splice(i,1);syncProduct(p,false);updateBar();var m=document.querySelector('.vectone-compare-modal');if(m&&!m.hidden){if(selected.length>=2)renderModal();else closeModal();}}
+  function clearProducts(){selected.slice().forEach(function(p){syncProduct(p,false);});selected=[];updateBar();closeModal();}
+  function addText(parent,tag,cls,value){if(!value)return;var e=document.createElement(tag);e.className=cls;e.textContent=value;parent.appendChild(e);}
+  function renderModal(){var m=document.querySelector('.vectone-compare-modal'),grid=m.querySelector('.vectone-compare-modal__grid');grid.textContent='';selected.forEach(function(p){var d=productData(p),item=document.createElement('article');item.className='vectone-compare-modal__item';if(d.image){var im=document.createElement('img');im.className='vectone-compare-modal__logo';im.src=d.image;im.alt=d.title;item.appendChild(im);}addText(item,'h3','vectone-compare-modal__title',d.title);addText(item,'strong','vectone-compare-modal__data',d.data);addText(item,'p','vectone-compare-modal__price',d.price);d.attributes.forEach(function(a){addText(item,'p','vectone-compare-modal__attribute',a);});if(d.link&&d.link.getAttribute('href')){var link=d.link.cloneNode(true);link.className='vectone-compare-modal__cta';link.textContent="Voir l'offre →";item.appendChild(link);}grid.appendChild(item);});m.hidden=false;previousBodyOverflow=document.body.style.overflow;document.body.style.overflow='hidden';}
+  function createModal(){if(document.querySelector('.vectone-compare-modal'))return;var m=document.createElement('div');m.className='vectone-compare-modal';m.hidden=true;m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.innerHTML='<div class="vectone-compare-modal__backdrop"></div><section class="vectone-compare-modal__panel"><button type="button" class="vectone-compare-modal__close" aria-label="Fermer">×</button><p class="vectone-compare-modal__eyebrow">Comparateur</p><h2 id="vectone-compare-title">Comparez vos choix</h2><p class="vectone-compare-modal__subtitle">Les différences essentielles, côte à côte.</p><div class="vectone-compare-modal__grid"></div></section>';document.body.appendChild(m);m.querySelector('.vectone-compare-modal__close').addEventListener('click',closeModal);m.querySelector('.vectone-compare-modal__backdrop').addEventListener('click',closeModal);}
+  function toggle(p){var i=selected.indexOf(p);if(i!==-1){selected.splice(i,1);syncProduct(p,false);updateBar();return;}if(selected.length>=maxSelected)return;selected.push(p);syncProduct(p,true);updateBar();}
+  function setup(){var list=products();if(!list.length||document.querySelector('.vectone-compare-bar'))return;list.forEach(function(p){var footer=p.querySelector('.product-footer-inner,.product-footer');if(!footer||!p.querySelector('.product-title')||!p.querySelector('.price')||!realLink(p)||footer.querySelector('.vectone-compare-button'))return;var b=document.createElement('button');b.type='button';b.className='vectone-compare-button';b.textContent='+ Comparer';b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){toggle(p);});footer.appendChild(b);});var bar=document.createElement('div');bar.className='vectone-compare-bar';bar.hidden=true;bar.innerHTML='<div class="vectone-compare-bar__top"><span>Comparer vos choix</span><strong data-compare-count>0 / 3</strong></div><div class="vectone-compare-bar__items" data-compare-items></div><div class="vectone-compare-bar__actions"><button type="button" class="vectone-compare-bar__clear" data-compare-clear>Tout effacer</button><button type="button" data-compare-open disabled>Comparer <span aria-hidden="true">→</span></button></div>';document.body.appendChild(bar);createModal();bar.querySelector('[data-compare-clear]').addEventListener('click',clearProducts);bar.querySelector('[data-compare-open]').addEventListener('click',function(){if(selected.length>=2)renderModal();});updateBar();}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 }());

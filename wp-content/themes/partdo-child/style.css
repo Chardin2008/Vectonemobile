@@ -12,4 +12,762 @@ Theme Name:   Partdo Child
  Text Domain:  partdo-child
 */
 
+/* Footer — polish visuel de la structure WordPress existante. */
+.site-footer {
+    background: #123d35;
+    color: rgba(255, 255, 255, .72);
+}
+
+.site-footer .footer-row.footer-widgets {
+    padding: 56px 0 38px;
+    background: transparent;
+}
+
+.site-footer .footer-widgets > .container,
+.site-footer .footer-copyright > .container {
+    width: min(100% - 64px, 1380px);
+    max-width: 1380px;
+    margin-inline: auto;
+    padding: 0;
+}
+
+.site-footer .footer-inner,
+.site-footer .footer-sidebar {
+    width: 100%;
+}
+
+.site-footer .footer-sidebar {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.05fr) minmax(0, 2fr);
+    gap: 64px;
+    align-items: start;
+}
+
+.site-footer .footer-sidebar .custom-column {
+    padding: 0;
+}
+
+.site-footer .footer-sidebar .custom-column img {
+    width: min(180px, 100%);
+    height: auto;
+}
+
+.site-footer .widgets-column > .row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin: 0;
+}
+
+.site-footer .widgets-column > .row > .col {
+    width: auto;
+    max-width: none;
+    padding: 0;
+}
+
+.site-footer .widget-title {
+    position: relative;
+    margin: 0 0 16px;
+    padding-top: 11px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.site-footer .widget-title::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 2px;
+    content: '';
+    background: #f2384f;
+}
+
+.site-footer .widget_nav_menu ul,
+.site-footer .widget_text p {
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer .widget_nav_menu ul {
+    list-style: none;
+}
+
+.site-footer .widget_nav_menu li + li {
+    margin-top: 4px;
+}
+
+.site-footer .footer-widgets a {
+    color: rgba(255, 255, 255, .72);
+    font-size: 15px;
+    line-height: 1.8;
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+.site-footer .footer-widgets a:hover,
+.site-footer .footer-widgets a:focus-visible {
+    color: #fff;
+}
+
+.site-footer .footer-widgets a:focus-visible,
+.site-footer .footer-copyright a:focus-visible {
+    outline: 2px solid #d9ff65;
+    outline-offset: 3px;
+}
+
+.site-footer .footer-copyright {
+    border-top: 1px solid rgba(255, 255, 255, .14);
+    background: transparent;
+}
+
+.site-footer .footer-copyright .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    min-height: 68px;
+    padding: 20px 0;
+}
+
+.site-footer .site-copyright p {
+    margin: 0;
+    color: rgba(255, 255, 255, .62);
+    font-size: 13px;
+}
+
+@media (max-width: 1024px) {
+    .site-footer .footer-sidebar {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .site-footer .widgets-column > .row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .site-footer .footer-widgets > .container,
+    .site-footer .footer-copyright > .container {
+        width: calc(100% - 40px);
+    }
+
+    .site-footer .footer-row.footer-widgets {
+        padding: 42px 0 28px;
+    }
+
+    .site-footer .widgets-column > .row {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .site-footer .footer-copyright .footer-inner {
+        min-height: 0;
+        padding: 18px 0;
+    }
+}
+
+/* Homepage — polish ciblé de la section Avis Elementor existante. */
+body.home .elementor-element-a9c871d {
+    padding: 56px 0 64px;
+    background: #f8faf9;
+}
+
+body.home .elementor-element-e431555 .klb-custom-title {
+    margin-bottom: 28px;
+}
+
+body.home .elementor-element-e431555 .klb-custom-title .entry-title {
+    color: #102d28;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1;
+}
+
+body.home .elementor-element-371471e .klbth-slider {
+    margin: 0 -10px;
+}
+
+body.home .elementor-element-371471e .slider-item.testimonial {
+    height: auto;
+    padding: 10px;
+}
+
+body.home .elementor-element-371471e .testimonial-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    min-height: 210px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid rgba(18, 61, 53, .10);
+    border-radius: 18px;
+    box-shadow: 0 2px 10px rgba(18, 61, 53, .035);
+}
+
+body.home .elementor-element-371471e .customer-avatar {
+    flex: 0 0 54px;
+    width: 54px;
+    height: 54px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+body.home .elementor-element-371471e .customer-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.home .elementor-element-371471e .customer-detail {
+    min-width: 0;
+}
+
+body.home .elementor-element-371471e .stars {
+    margin-bottom: 10px;
+    color: #f2384f;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+body.home .elementor-element-371471e .customer-name {
+    margin-bottom: 8px;
+    color: #102d28;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+body.home .elementor-element-371471e .customer-mission {
+    color: #788783;
+    font-size: 12px;
+}
+
+body.home .elementor-element-371471e .customer-description p {
+    margin: 0;
+    color: #263a35;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+@media (max-width: 767px) {
+    body.home .elementor-element-a9c871d {
+        padding: 40px 0 48px;
+    }
+
+    body.home .elementor-element-371471e .testimonial-inner {
+        min-height: 0;
+        padding: 20px;
+    }
+}
+
+/* Actualités — étape 1 : contenu pleine largeur, sans sidebar. */
+body.blog .klb-blog {
+    width: min(100% - 56px, 1380px);
+    max-width: 1380px;
+    margin-inline: auto;
+    padding-inline: 28px;
+}
+
+body.blog .klb-blog .primary-column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+body.blog .klb-blog #sidebar.blog-sidebar {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    body.blog .klb-blog {
+        width: 100%;
+        padding-inline: 16px;
+    }
+}
+
+/* Actualités — surcharges finales du polish cartes. */
+body.blog .klb-blog .blog-posts {
+    gap: 24px;
+}
+
+body.blog .klb-blog .blog-posts > article.klb-article {
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+body.blog .klb-blog .blog-posts .entry-media {
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+}
+
+body.blog .klb-blog .blog-posts .entry-wrapper {
+    padding: 18px 20px 20px;
+}
+
+body.blog .klb-blog .blog-posts .entry-footer {
+    margin-bottom: 8px;
+}
+
+body.blog .klb-blog .blog-posts .entry-title {
+    padding-top: 12px;
+    font-size: clamp(24px, 1.7vw, 27px);
+    line-height: 1.1;
+}
+
+body.blog .klb-blog .blog-posts .entry-title::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    content: '';
+    background: #f2384f;
+}
+
+body.blog .klb-blog .blog-posts .entry-excerpt {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+body.blog .klb-blog .blog-posts .entry-excerpt > p {
+    -webkit-line-clamp: 2;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore {
+    padding-top: 16px;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore a {
+    font-size: 15px;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore a i {
+    color: #f2384f;
+}
+
+body.blog .klb-blog .blog-posts > article.klb-article:hover {
+    border-color: rgba(242, 56, 79, .30);
+    box-shadow: 0 12px 30px rgba(18, 61, 53, .06);
+}
+
+@media (max-width: 1199px) {
+    body.blog .klb-blog .blog-posts .entry-media {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    body.blog .klb-blog .blog-posts {
+        gap: 20px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-media {
+        max-height: 200px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-wrapper {
+        padding: 18px 20px 20px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-title {
+        font-size: 24px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-excerpt > p {
+        -webkit-line-clamp: 3;
+    }
+}
+
+/* Actualités — polish compact des cartes uniquement. */
+body.blog .klb-blog .blog-posts {
+    gap: 24px;
+}
+
+body.blog .klb-blog .blog-posts > article.klb-article {
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+body.blog .klb-blog .blog-posts .entry-media {
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+}
+
+body.blog .klb-blog .blog-posts .entry-wrapper {
+    padding: 18px 20px 20px;
+}
+
+body.blog .klb-blog .blog-posts .entry-footer {
+    margin-bottom: 8px;
+}
+
+body.blog .klb-blog .blog-posts .entry-meta {
+    align-items: center;
+    gap: 5px 8px;
+}
+
+body.blog .klb-blog .blog-posts .entry-title {
+    position: relative;
+    padding-top: 12px;
+    font-size: clamp(24px, 1.7vw, 27px);
+    line-height: 1.1;
+}
+
+body.blog .klb-blog .blog-posts .entry-title::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    content: '';
+    background: #f2384f;
+}
+
+body.blog .klb-blog .blog-posts .entry-excerpt {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+body.blog .klb-blog .blog-posts .entry-excerpt > p {
+    -webkit-line-clamp: 2;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore {
+    padding-top: 16px;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore a {
+    font-size: 15px;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore a i {
+    color: #f2384f;
+}
+
+body.blog .klb-blog .blog-posts > article.klb-article:hover {
+    border-color: rgba(242, 56, 79, .30);
+    box-shadow: 0 12px 30px rgba(18, 61, 53, .06);
+}
+
+@media (max-width: 1199px) {
+    body.blog .klb-blog .blog-posts .entry-media {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    body.blog .klb-blog .blog-posts {
+        gap: 20px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-media {
+        max-height: 200px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-wrapper {
+        padding: 18px 20px 20px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-title {
+        font-size: 24px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-excerpt > p {
+        -webkit-line-clamp: 3;
+    }
+}
+
+/* Actualités — étape 2 : grille éditoriale des articles existants. */
+body.blog .vectone-news-intro {
+    display: block;
+    width: calc(100% - 64px);
+    min-width: 0;
+    align-items: center;
+    min-height: 0;
+    max-width: 1380px;
+    margin: 28px auto 44px;
+    padding: 28px 30px;
+    overflow: hidden;
+    background: #f1f5f3;
+    border: 1px solid rgba(18, 61, 53, .08);
+    border-radius: 22px;
+}
+
+body.blog .vectone-news-intro__copy {
+    position: relative;
+    z-index: 1;
+}
+
+body.blog .vectone-news-intro__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 14px;
+    color: #f2384f;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+body.blog .vectone-news-intro__eyebrow span {
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: #f2384f;
+}
+
+body.blog .vectone-news-intro h1 {
+    max-width: 100%;
+    margin: 0;
+    color: #102d28;
+    font-size: clamp(42px, 4.5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -.035em;
+    line-height: .95;
+}
+
+body.blog .vectone-news-intro__lead {
+    max-width: 100%;
+    margin: 20px 0 0;
+    color: #5f716c;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+body.blog .vectone-news-intro__image-placeholder {
+    display: none;
+}
+
+body.blog .klb-blog .blog-posts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+body.blog .klb-blog .blog-posts > article.klb-article {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid rgba(18, 61, 53, .10);
+    border-radius: 16px;
+    box-shadow: none;
+    transition: border-color 190ms ease;
+}
+
+body.blog .klb-blog .blog-posts > article.klb-article:hover {
+    border-color: rgba(240, 68, 88, .42);
+}
+
+body.blog .klb-blog .blog-posts .entry-media {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 220px;
+    min-height: 0;
+    overflow: hidden;
+    background-color: #eaf5f1;
+    background-position: center;
+    background-size: cover;
+}
+
+body.blog .klb-blog .blog-posts .entry-media > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform 190ms ease;
+}
+
+body.blog .klb-blog .blog-posts > article.klb-article:hover .entry-media > a {
+    transform: scale(1.018);
+}
+
+body.blog .klb-blog .blog-posts .entry-wrapper {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    padding: 18px 20px 20px;
+}
+
+body.blog .klb-blog .blog-posts .entry-footer {
+    order: -1;
+    margin: 0 0 10px;
+}
+
+body.blog .klb-blog .blog-posts .entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 9px;
+    color: #788783;
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+body.blog .klb-blog .blog-posts .entry-meta .meta-item {
+    display: inline-flex;
+    gap: 4px;
+    margin: 0;
+}
+
+body.blog .klb-blog .blog-posts .entry-meta .meta-item + .meta-item::before {
+    content: '•';
+    color: #788783;
+}
+
+body.blog .klb-blog .blog-posts .entry-meta .meta-item > span {
+    display: none;
+}
+
+body.blog .klb-blog .blog-posts .entry-meta a,
+body.blog .klb-blog .blog-posts .entry-category a {
+    color: #f2384f;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+body.blog .klb-blog .blog-posts .entry-meta .meta-item:first-child a {
+    color: #788783;
+    font-weight: 500;
+    text-transform: none;
+}
+
+body.blog .klb-blog .blog-posts .entry-title {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    color: #102d28;
+    padding-top: 12px;
+    font-size: clamp(24px, 1.7vw, 27px);
+    font-weight: 700;
+    line-height: 1.12;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+body.blog .klb-blog .blog-posts .entry-title a {
+    color: inherit;
+}
+
+body.blog .klb-blog .blog-posts .entry-excerpt {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    margin-top: 10px;
+    color: #5f716c;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+body.blog .klb-blog .blog-posts .entry-excerpt > p {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore {
+    margin-top: 16px;
+    padding-top: 0;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    color: #183d35;
+    font-weight: 700;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore a i {
+    transition: transform 190ms ease;
+}
+
+body.blog .klb-blog .blog-posts .klb-readmore a:hover i {
+    transform: translateX(3px);
+}
+
+/* Shared readable action for expandable "Lire la suite" components. */
+body.vectone-v3 .klb-readmore a.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border: 1px solid #b4233a;
+    border-radius: 6px;
+    background-color: #b4233a;
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+    text-shadow: none;
+}
+
+body.vectone-v3 .klb-readmore a.btn:hover,
+body.vectone-v3 .klb-readmore a.btn:focus-visible {
+    border-color: #8f1c2d;
+    background-color: #8f1c2d;
+    color: #fff !important;
+}
+
+body.vectone-v3 .klb-readmore a.btn:focus-visible {
+    outline: 3px solid rgba(217, 255, 101, .9);
+    outline-offset: 3px;
+}
+
+@media (max-width: 1199px) {
+    body.blog .klb-blog .blog-posts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    body.blog .vectone-news-intro {
+        display: block;
+        width: 100%;
+        min-height: 0;
+        margin: 24px 0 40px;
+        padding: 28px 20px;
+    }
+
+    body.blog .vectone-news-intro h1 {
+        font-size: clamp(38px, 11vw, 44px);
+    }
+
+    body.blog .vectone-news-intro__lead {
+        margin-top: 16px;
+        font-size: 17px;
+    }
+
+    body.blog .vectone-news-intro__image-placeholder {
+        min-height: 210px;
+        max-height: 240px;
+        margin-top: 22px;
+    }
+
+    body.blog .klb-blog .blog-posts {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    body.blog .klb-blog .blog-posts .entry-title {
+        font-size: 24px;
+    }
+}
+
 /* Vectone V3 clean baseline — visual refonte intentionally reset. */

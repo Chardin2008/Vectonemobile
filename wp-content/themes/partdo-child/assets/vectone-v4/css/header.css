@@ -1,0 +1,30 @@
+.vectone-v4 .site-header{position:fixed;top:0;right:0;left:0;z-index:60;background:var(--v4-white);border:0;box-shadow:0 1px 0 var(--v4-line);font-family:Arial,sans-serif}
+.vectone-v4{padding-top:184px}
+.admin-bar.vectone-v4 .site-header{top:32px}
+@media(max-width:782px){.admin-bar.vectone-v4 .site-header{top:46px}}
+@media(max-width:767px){.vectone-v4{padding-top:68px}.admin-bar.vectone-v4{padding-top:114px}}
+
+/* Mobile sticky header: no artificial spacer before the header. */
+@media(max-width:767px){.vectone-v4,.admin-bar.vectone-v4{padding-top:0!important}}
+.vectone-v4 .site-header .header-topbar{height:32px;min-height:32px;background:var(--v4-forest);color:var(--v4-mint);font-size:12px}
+.vectone-v4 .site-header .header-topbar .header-inner,.vectone-v4 .site-header .header-main .header-inner,.vectone-v4 .site-header .header-nav .header-inner{width:min(var(--v4-container),calc(100% - 64px));max-width:var(--v4-container);margin-inline:auto}
+.vectone-v4 .site-header .header-main .header-inner{min-height:90px;height:90px;display:flex;align-items:center;gap:28px}
+.vectone-v4 .site-header .site-brand img{display:block;width:auto;max-width:215px;max-height:72px;object-fit:contain}
+.vectone-v4 .site-header .header-main .column.center{flex:1 1 auto;min-width:0}
+.vectone-v4 .site-header form.search-form,.vectone-v4 .site-header .search-form-wrapper form,.vectone-v4 .site-header .search-holder form{width:min(660px,48vw);height:54px;min-height:54px;margin-left:auto;display:flex;overflow:hidden;border:1px solid var(--v4-line);border-radius:14px;background:var(--v4-paper)}
+.vectone-v4 .site-header input[type=search],.vectone-v4 .site-header input.search-input{height:54px;min-height:54px;flex:1 1 auto;padding:0 22px;border:0;background:transparent;color:var(--v4-text);font:500 15px Arial,sans-serif}
+.vectone-v4 .site-header form.search-form button,.vectone-v4 .site-header .search-form-wrapper button{width:132px;height:54px;min-width:132px;margin:0;border:0;border-radius:0 13px 13px 0;background:var(--v4-coral);color:#fff;font-weight:700}
+.vectone-v4 .site-header form.search-form button:hover,.vectone-v4 .site-header .search-form-wrapper button:hover{background:var(--v4-coral-dark)}
+.vectone-v4 .site-header .header-nav{min-height:62px;border-top:1px solid var(--v4-line);background:var(--v4-white)}
+.vectone-v4 .site-header .header-nav .header-inner{min-height:62px;display:flex;align-items:center}
+.vectone-v4 .site-header .klbth-menu-wrapper.primary .klbth-menu>li>a{position:relative;display:inline-flex;align-items:center;min-height:62px;color:var(--v4-forest);font:700 15px Arial,sans-serif}
+.vectone-v4 .site-header .klbth-menu-wrapper.primary .klbth-menu>li>a::after{position:absolute;right:0;bottom:11px;left:0;width:18px;height:2px;background:var(--v4-coral);content:"";transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.vectone-v4 .site-header .klbth-menu-wrapper.primary .klbth-menu>li>a:hover::after,.vectone-v4 .site-header .klbth-menu-wrapper.primary .klbth-menu>li.current-menu-item>a::after{transform:scaleX(1)}
+.vectone-v4 .site-header .site-drawer-header .site-brand img{max-width:190px;max-height:60px;object-fit:contain}
+@media(max-width:1199px){.vectone-v4 .site-header .header-main .header-inner,.vectone-v4 .site-header .header-topbar .header-inner,.vectone-v4 .site-header .header-nav .header-inner{width:calc(100% - 40px)}.vectone-v4 .site-header .header-main .header-inner{gap:18px}.vectone-v4 .site-header .site-brand img{max-width:180px}}
+.vectone-v4 .vectone-v4-category-rail{border-bottom:1px solid var(--v4-line);background:var(--v4-white)}
+.vectone-v4 .vectone-v4-category-rail__inner{display:flex;align-items:center;justify-content:center;gap:clamp(22px,4vw,58px);width:min(var(--v4-container),calc(100% - 64px));min-height:62px;margin-inline:auto}
+.vectone-v4 .vectone-v4-category-rail__item{display:inline-flex;align-items:center;gap:11px;min-height:44px;color:var(--v4-forest);font:700 13px Manrope,Arial,sans-serif;text-decoration:none;white-space:nowrap}
+.vectone-v4 .vectone-v4-category-rail__icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;color:var(--v4-forest);font-size:18px;line-height:1}
+.vectone-v4 .vectone-v4-category-rail__item:hover{color:var(--v4-coral)}
+@media(max-width:767px){.vectone-v4 .vectone-v4-category-rail{overflow:hidden}.vectone-v4 .vectone-v4-category-rail__inner{justify-content:flex-start;gap:22px;width:100%;min-height:58px;padding:0 14px;overflow-x:auto}.vectone-v4 .vectone-v4-category-rail__item{font-size:12px}}
